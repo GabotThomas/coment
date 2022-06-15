@@ -1,0 +1,18 @@
+@mixin generate-unit-style(
+    $attr,
+    $min: 0,
+    $max: 5,
+    $step: 1,
+    $unit: "",
+    $alias: $attr
+) {
+    $i: $min;
+
+    @while $i <=$max {
+        .#{$alias}-#{str-replace(#{$i}, ".", "_")}#{$unit} {
+            #{$attr}: #{$i}#{if($unit == "", "em", $unit)} !important;
+        }
+
+        $i: $i + $step;
+    }
+}

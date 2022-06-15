@@ -1,3 +1,19 @@
+
+
+@include generate-unit-style('margin', 0, 2, 0.25, '', 'm');
+@include generate-unit-style('margin-top', 0, 2, 0.25, '', 'mt');
+@include generate-unit-style('margin-bottom', 0, 2, 0.25, '', 'mb');
+@include generate-unit-style('margin-left', 0, 2, 0.25, '', 'ml');
+@include generate-unit-style('margin-right', 0, 2, 0.25, '', 'mr');
+// padding
+@include generate-unit-style('padding', 0, 2, 0.25, '', 'p');
+@include generate-unit-style('padding-top', 0, 2, 0.25, '', 'pt');
+@include generate-unit-style('padding-bottom', 0, 2, 0.25, '', 'pb');
+@include generate-unit-style('padding-left', 0, 2, 0.25, '', 'pl');
+@include generate-unit-style('padding-right', 0, 2, 0.25, '', 'pr');
+//gap
+@include generate-unit-style('gap', 0, 2, 0.25, '', 'gap');
+
 body {
     margin: 0;
     font-family: $font-family-sans-serif;
