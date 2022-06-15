@@ -36,7 +36,7 @@ watch(resultLogin, (currentValue, oldValue) => {
         store.commit("setUser", currentValue.user)
     } else {
         store.commit("setToken", null);
-        router.push({ name: "Login" });
+        //router.push({ name: "Login" });
     }
 });
 

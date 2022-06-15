@@ -12,7 +12,7 @@ const store = useStore();
 const router = useRouter();
 const [resultLogin, loadLogin, loadingLogin] = useFetch();
 const [user, dispatchState] = useReducer(formReducer, {
-  email: "thomas@mail.fr",
+  email: "admin@mail.fr",
   password: "adminadmin",
 });
 const [setValue] = useActions(dispatchState, [setValueAction]);
@@ -20,7 +20,7 @@ const csrf = document.head.querySelector('meta[name="csrf-token"]').content;
 
 const handleSubmit = () => {
   loadLogin({
-    url: "login",
+    url: "admin/login",
     method: POST,
     body: user.value,
   });
@@ -42,87 +42,39 @@ watch(resultLogin, (currentValue, oldValue) => {
 </script>
 <template>
   <div class="
-      container
-      mx-auto
-      text-center
-      flex
-      justify-center
-      items-center
-      h-screen
+      ui container login
     ">
-    <div class="w-full max-w-xs">
-      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-            Email
-          </label>
-          <input class="
-              shadow
-              appearance-none
-              border
-              rounded
-              w-full
-              py-2
-              px-3
-              text-gray-700
-              leading-tight
-              focus:outline-none focus:shadow-outline
-            " id="username" name="email" type="text" placeholder="Username" @input="handleChange"
-            :value="user.value.email || ''" />
-        </div>
-        <div class="mb-6">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-            Password
-          </label>
-          <input class="
-              shadow
-              appearance-none
-              border border-red-500
-              rounded
-              w-full
-              py-2
-              px-3
-              text-gray-700
-              mb-3
-              leading-tight
-              focus:outline-none focus:shadow-outline
-            " id="password" type="password" name="password" placeholder="******************" @input="handleChange"
-            :value="user.value.password || ''" />
-          <p class="text-red-500 text-xs italic">Please choose a password.</p>
-        </div>
-        <div class="flex items-center justify-between">
-          <button class="
-              bg-blue-500
-              hover:bg-blue-700
-              text-white
-              font-bold
-              py-2
-              px-4
-              rounded
-              focus:outline-none focus:shadow-outline
+    <h1 class="mb-1_25">Admin</h1>
+    <form class="ui form">
+      <div class="mb-0_5">
+        <input class="ui input" id="username" name="email" type="text" placeholder="Username" @input="handleChange"
+          :value="user.value.email || ''" />
+      </div>
+      <div class="password-login mb-1_5">
+        <input class="ui input" id="password" type="password" name="password" placeholder="******************"
+          @input="handleChange" :value="user.value.password || ''" />
+        <a href="" class="forgot-password">Oublié ?</a>
+      </div>
+      <div class="">
+        <button class="
+            btn
+            btn-primary
+            mb-1_5
             " type="button" v-on:click.prevent="handleSubmit">
-            Sign In
-          </button>
-          <a class="              
-              inline-block
-              align-baseline
-              font-bold
-              text-sm text-blue-500
-              hover:text-blue-800" href="#">
-            Forgot Password?
-          </a>
-        </div>
-        <input type="hidden" name="_token" :value="csrf">
-        <router-link class="              
-              inline-block
-              align-baseline
-              font-bold
-              text-sm text-blue-500
-              hover:text-blue-800" :to="{ name: 'Register' }">Register</router-link>.
-      </form>
-      <p class="text-center text-gray-500 text-xs">
-        &copy;2020 Acme Corp. All rights reserved.
-      </p>
-    </div>
+          Se connecter
+        </button>
+      </div>
+      <span class="switch-login mb-1_5">ou</span>
+      <!-- <div class="">
+            <input class="ui input" id="password" type="password" name="password" placeholder="******************"
+            @input="handleChange" :value="user.value.password || ''" />
+            <p class="">Please choose a password.</p>
+        </div> -->
+      <div class="login-text mb-1">
+        <span>En te connectant à [Nom de l’appli], tu acceptes nos <b>Conditions d’utilisation</b> et notre <b>Politique
+            de confidentialité.</b></span>
+      </div>
+      <input type="hidden" name="_token" :value="csrf">
+    </form>
   </div>
 </template>

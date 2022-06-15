@@ -1,13 +1,19 @@
 import { render } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import LoginContainer from "../components/container/LoginContainer.vue";
+import HomeContainer from "../components/container/HomeContainer.vue";
 import store from "../../store/index.js";
 const routes = [
     {
-        path: "/",
+        path: "/admin",
+        name: "Home",
+        component: HomeContainer,
+        meta: { requiresLogin: true },
+    },
+    {
+        path: "/admin/login",
         name: "Login",
         component: LoginContainer,
-        beforeEnter: [justVisitor],
     },
 ];
 const router = createRouter({
@@ -21,17 +27,10 @@ router.beforeEach((to, from, next) => {
             (record) => record.meta.requiresLogin && !store.state.user.token
         )
     ) {
-        next("/login");
+        next("/admin/login");
     } else {
         next();
     }
 });
-
-function justVisitor(to, from, next) {
-    if (store.state.user.token && store.state.user.token != "unknown") {
-        return next("/");
-    }
-    return next();
-}
 
 export default router;

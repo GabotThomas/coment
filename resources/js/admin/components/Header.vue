@@ -39,7 +39,6 @@ const handleLogOut = () => {
           </button>
           <button
             class="no-underline text-teal-dark border-b-2 border-teal-dark uppercase tracking-wide font-bold text-xs py-3 mr-8">
-            <router-link :to="{ name: 'Register' }">Register</router-link>
           </button>
         </template>
         <template v-else>
