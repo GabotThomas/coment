@@ -25,6 +25,10 @@ h1 {
     font-family: $font-family-second;
 }
 
+button {
+    font-family: $font-family-sans-serif;
+}
+
 .ui.container.login {
     display: flex;
     flex-direction: column;
@@ -69,7 +73,7 @@ h1 {
     }
     .text-register {
         text-align: center;
-        font-size: 0.95rem;
+        font-size: 0.75rem;
 
         a {
         text-decoration: none;
