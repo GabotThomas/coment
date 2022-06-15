@@ -46,13 +46,15 @@ watch(resultLogin, (currentValue, oldValue) => {
     ">
     <h1 class="mb-1_25">Se connecter</h1>
     <form class="ui form">
-      <div class="">
+      <div class="mb-0_5">
         <input class="ui input" id="username" name="email" type="text" placeholder="Username" @input="handleChange"
           :value="user.value.email || ''" />
       </div>
-      <div class="">
-        <input class="ui input mb-1_5" id="password" type="password" name="password" placeholder="******************"
+      <div class="password-login mb-1_5">
+        <input class="ui input" id="password" type="password" name="password" placeholder="******************"
           @input="handleChange" :value="user.value.password || ''" />
+          <a href="" class="forgot-password">Oublié ?</a>
+      </div>
       <div class="">
         <button class="
             btn
@@ -63,7 +65,6 @@ watch(resultLogin, (currentValue, oldValue) => {
         </button>
       </div>
         <span class="switch-login mb-1_5">ou</span>
-      </div>
         <!-- <div class="">
             <input class="ui input" id="password" type="password" name="password" placeholder="******************"
             @input="handleChange" :value="user.value.password || ''" />

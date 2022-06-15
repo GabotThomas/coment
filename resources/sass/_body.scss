@@ -50,6 +50,19 @@ h1 {
         }
     }
 
+    .password-login {
+        position: relative;
+
+        .forgot-password {
+            position: absolute;
+            top: 50%;
+            right: 1.5rem;
+            transform: translateY(-50%);
+            color: $gray;
+            text-decoration: none;
+        }
+    }
+
     .login-text {
         text-align: center;
         color: $gray;
