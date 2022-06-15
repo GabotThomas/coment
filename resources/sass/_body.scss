@@ -1,6 +1,12 @@
+body{
+    margin: 0;
+}
+
+
 .ui.container.login {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 80vh;
+    padding: 1rem;
 }

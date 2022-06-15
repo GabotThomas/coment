@@ -3,9 +3,12 @@
     border: 2px solid #e5e5e5;
     border-radius: 15px;
     padding: 0.6rem;
-    width: 100%;
+    width: calc(100% - 1.2rem);
 }
 
-.ui.form .ui.input {
-    margin-bottom: 0.4rem;
+.ui.form {
+    width: 100%;
+    .ui.input {
+        margin-bottom: 0.4rem;
+    }
 }

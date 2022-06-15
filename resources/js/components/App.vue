@@ -46,8 +46,8 @@ watch(resultLogin, (currentValue, oldValue) => {
     <Loader v-if="loadingLogin" />
     <div v-else>
         <Header :is-connected="token" />
-        <div>
+        <main>
             <router-view></router-view>
-        </div>
+        </main>
     </div>
 </template>
