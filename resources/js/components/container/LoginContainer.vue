@@ -52,11 +52,10 @@ watch(resultLogin, (currentValue, oldValue) => {
       <div class="">
         <input class="ui input" id="password" type="password" name="password" placeholder="******************"
           @input="handleChange" :value="user.value.password || ''" />
-        <p class="">Please choose a password.</p>
+        <span class="switch-login">ou</span>
       </div>
       <div class="">
-        <button class="
-            " type="button" v-on:click.prevent="handleSubmit">
+        <button class="" type="button" v-on:click.prevent="handleSubmit">
           Sign In
         </button>
         <a class="" href="#">

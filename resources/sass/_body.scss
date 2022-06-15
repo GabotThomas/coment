@@ -1,7 +1,7 @@
-body{
+body {
     margin: 0;
+    font-family: $font-family-sans-serif;
 }
-
 
 .ui.container.login {
     display: flex;
@@ -9,4 +9,21 @@ body{
     justify-content: center;
     height: 80vh;
     padding: 1rem;
+    .switch-login {
+        display: flex;
+        gap: 0.7rem;
+        align-items: center;
+        color: #afafaf;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 0.75rem;
+        &:before,
+        &:after {
+            content: "";
+            background-color: #afafaf;
+            height: 1px;
+            width: 100%;
+            display: block;
+        }
+    }
 }
