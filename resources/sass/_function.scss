@@ -1,3 +1,19 @@
+@use "sass:string";
+@use "sass:map";
+
+
+@function str-replace($str, $search, $replace: '') {
+	$i: str-index($str, $search);
+
+	@if $i {
+		@return str-slice($str, 1, $i - 1) + $replace +
+			str-replace(str-slice($str, $i + str-length($search)), $search, $replace);
+	}
+
+	@return $str;
+}
+
+
 @mixin generate-unit-style(
     $attr,
     $min: 0,
