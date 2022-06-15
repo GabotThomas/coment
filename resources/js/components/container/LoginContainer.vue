@@ -44,26 +44,39 @@ watch(resultLogin, (currentValue, oldValue) => {
   <div class="
       ui container login
     ">
+    <h1 class="mb-1_25">Se connecter</h1>
     <form class="ui form">
       <div class="">
         <input class="ui input" id="username" name="email" type="text" placeholder="Username" @input="handleChange"
           :value="user.value.email || ''" />
       </div>
       <div class="">
-        <input class="ui input" id="password" type="password" name="password" placeholder="******************"
+        <input class="ui input mb-1_5" id="password" type="password" name="password" placeholder="******************"
           @input="handleChange" :value="user.value.password || ''" />
-        <span class="switch-login">ou</span>
-      </div>
       <div class="">
-        <button class="" type="button" v-on:click.prevent="handleSubmit">
-          Sign In
+        <button class="
+            btn
+            btn-primary
+            mb-1_5
+            " type="button" v-on:click.prevent="handleSubmit">
+          Se connecter
         </button>
-        <a class="" href="#">
-          Forgot Password?
-        </a>
       </div>
+        <span class="switch-login mb-1_5">ou</span>
+      </div>
+        <!-- <div class="">
+            <input class="ui input" id="password" type="password" name="password" placeholder="******************"
+            @input="handleChange" :value="user.value.password || ''" />
+            <p class="">Please choose a password.</p>
+        </div> -->
+        <div class="login-text mb-1">
+            <span>En te connectant à [Nom de l’appli], tu acceptes nos <b>Conditions d’utilisation</b> et notre <b>Politique de confidentialité.</b></span>
+        </div>
       <input type="hidden" name="_token" :value="csrf">
-      <router-link class="" :to="{ name: 'Register' }">Register</router-link>.
+
+      <div class="fw-900 text-register">
+        <span>Tu n’as pas encore de  compte ? <router-link class="yellow" :to="{ name: 'Register' }">&nbsp; Fais le test</router-link></span>
+      </div>
     </form>
   </div>
 </template>
