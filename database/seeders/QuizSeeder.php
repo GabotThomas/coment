@@ -18,6 +18,7 @@ class QuizSeeder extends Seeder
         Quiz::create([
             'id'               => 1,
             'name'                  => 'Initial',
+            'is_initial'            => true,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);

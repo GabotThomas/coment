@@ -1,10 +1,10 @@
 <script setup>
-import { watch, ref, onBeforeMount, onUpdated } from "vue";
+import { watch, ref, onBeforeMount } from "vue";
+import { RouterLink } from "vue-router";
 import useFetch from "../../hooks/useFetch";
 
 const props = defineProps({
-    question: Object,
-    handleSelect: Function
+    question: Object
 })
 
 const [resultQuestions, loadQuestions, loadingQuestions] = useFetch();
@@ -23,10 +23,6 @@ watch(resultQuestions, (currentValue, oldValue) => {
     }
 });
 
-onUpdated(() => {
-    console.log(props.question)
-})
-
 </script>
 
 <template>
@@ -34,10 +30,8 @@ onUpdated(() => {
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    {{ props.question.text }}
-                    <div v-if="props.question.result != undefined">Select {{ props.question.result }}</div>
-                    <button v-on:click="(e) => handleSelect(1)">Vrai</button>
-                    <button v-on:click="(e) => handleSelect(0)">Faux</button>
+                    <span>TESTER VOS CONNAISSANCES</span>
+                    <router-link :to="{ name: 'QuizInitial' }">Start</router-link>
                 </div>
             </div>
         </div>

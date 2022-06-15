@@ -17,6 +17,7 @@ class CreateQuestionUserTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('question_id');
+            $table->boolean('result')->nullable();
             $table->timestamps();
         });
     }
