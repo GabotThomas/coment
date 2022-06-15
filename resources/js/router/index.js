@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Example from "../components/Example.vue";
 import LoginContainer from "../components/container/LoginContainer.vue";
 import RegisterContainer from "../components/container/RegisterContainer.vue";
+import QuestionContainer from "../components/container/QuestionContainer";
 import store from "../store/index.js";
 const routes = [
     {
@@ -23,6 +24,13 @@ const routes = [
         component: RegisterContainer,
         beforeEnter: [justVisitor],
     },
+
+    {
+        path: "/quiz/:id",
+        name: "Quiz",
+        component: QuestionContainer
+    }
+
     /*
     {
         path: "/category",
