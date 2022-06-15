@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //web.php
+Route::get('/admin{any}', function () {
+    return view('indexAdmin');
+})->where('any', '.*');
+
 Route::get('{any}', function () {
     return view('index');
 })->where('any', '.*');
