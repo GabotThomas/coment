@@ -15,8 +15,9 @@ class CreateQuestionUserTable extends Migration
     {
         Schema::create('question_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_user');
-            $table->integer('id_question');
+            $table->integer('user_id');
+            $table->integer('question_id');
+            $table->boolean('result')->nullable();
             $table->timestamps();
         });
     }

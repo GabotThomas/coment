@@ -77,8 +77,69 @@ button {
         font-size: 0.75rem;
 
         a {
-        text-decoration: none;
-        text-transform: uppercase;
+            text-decoration: none;
+            text-transform: uppercase;
         }
     }
+}
+
+.ui.container.quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+
+    .arrow-left {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .progress-bar {
+            content: "";
+            width: 90%;
+            background-color: $progress-gray;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .progress-bar__before {
+                position: absolute;
+                content: "";
+                display: block;
+                height: 100%;
+                background-color: $yellow-primary;
+                border-radius: 15px;
+        }
+    }
+
+    .question {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h1 {
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .question-text {
+            margin: 0;
+            font-family: $font-family-sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 22px;
+
+            span {
+                color: $yellow-primary;
+            }
+        }
+    }
+}
+
+.justify-start {
+    justify-content: start !important;
+}
+
+.display-none {
+    display: none;
 }
