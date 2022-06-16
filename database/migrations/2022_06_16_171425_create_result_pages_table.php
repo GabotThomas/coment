@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResultsTable extends Migration
+class CreateResultPagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::create('result_pages', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->bigInteger('result_id');
+            $table->string('text');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('results');
+        Schema::dropIfExists('result_pages');
     }
 }

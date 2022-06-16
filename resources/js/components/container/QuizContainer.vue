@@ -55,6 +55,16 @@ watch(resultQuiz, (currentValue, oldValue) => {
     }
 });
 
+watch(resultQuizSend, (currentValue, oldValue) => {
+    if (currentValue && currentValue.success) {
+        setItemToStorage({
+            id: currentValue.result,
+            pourcentage: currentValue.pourcentage
+        }, 'result')
+        router.push({ name: "Results", params: { id: currentValue.result } });
+    }
+});
+
 onBeforeMount(() => {
     handleLoad();
     const quiz = getStoredItem('quiz');
@@ -82,12 +92,13 @@ const allChecked = computed(() => {
                 <Loader v-if="loadingQuiz" />
                 <div v-else class="card ui container quiz justify-start">
                     <div v-on:click="handlePrev" class="arrow-left mb-2">
-                        <img :src="arrowLeft" alt="" srcset=""/>
+                        <img :src="arrowLeft" alt="" srcset="" />
                         <div class="progress-bar">
-                            <div class="progress-bar__before" v-bind:style="{ width:progress + '%' }"></div>
+                            <div class="progress-bar__before" v-bind:style="{ width: progress + '%' }"></div>
                         </div>
                     </div>
-                    <QuestionContainer :question="question" :handle-select="handleSelect" :handle-next="handleNext" :next="next" />
+                    <QuestionContainer :question="question" :handle-select="handleSelect" :handle-next="handleNext"
+                        :next="next" />
                     <div v-if="allChecked">
                         <button v-on:click="handleFinish" class="btn btn-primary">Terminer</button>
                     </div>

@@ -6,6 +6,7 @@ import RegisterContainer from "../components/container/RegisterContainer.vue";
 import QuestionContainer from "../components/container/QuestionContainer";
 import QuizContainer from "../components/container/QuizContainer";
 import QuizStartContainer from "../components/container/QuizStartContainer";
+import ResultsContainer from "../components/container/ResultsContainer";
 import store from "../store/index.js";
 
 const routes = [
@@ -27,11 +28,15 @@ const routes = [
         component: RegisterContainer,
         beforeEnter: [justVisitor],
     },
-
     {
         path: "/quiz/initial",
         name: "QuizInitial",
         component: QuizContainer,
+    },
+    {
+        path: "/results/:id",
+        name: "Results",
+        component: ResultsContainer,
     },
 
     /*
