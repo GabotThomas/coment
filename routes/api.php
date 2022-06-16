@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuizzesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/quiz/initial', [QuizzesController::class, 'initialQuiz']);
+Route::get('/quiz/{id}', [QuizzesController::class, 'show']);
+Route::post('/quiz/initial', [QuizzesController::class, 'resultQuizInitial']);
+

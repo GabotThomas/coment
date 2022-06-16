@@ -3,12 +3,16 @@ import { createRouter, createWebHistory } from "vue-router";
 import Example from "../components/Example.vue";
 import LoginContainer from "../components/container/LoginContainer.vue";
 import RegisterContainer from "../components/container/RegisterContainer.vue";
+import QuestionContainer from "../components/container/QuestionContainer";
+import QuizContainer from "../components/container/QuizContainer";
+import QuizStartContainer from "../components/container/QuizStartContainer";
 import store from "../store/index.js";
+
 const routes = [
     {
         path: "/",
         name: "Home",
-        component: Example,
+        component: QuizStartContainer,
     },
     {
         path: "/login",
@@ -23,6 +27,13 @@ const routes = [
         component: RegisterContainer,
         beforeEnter: [justVisitor],
     },
+
+    {
+        path: "/quiz/initial",
+        name: "QuizInitial",
+        component: QuizContainer,
+    },
+
     /*
     {
         path: "/category",
