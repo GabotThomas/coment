@@ -5,6 +5,11 @@ import useFetch from "../../hooks/useFetch";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import ResultSwipeContainer from "./ResultSwipeContainer.vue"
 import Loader from "../util/Loader.vue";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import SwiperCore, { Pagination } from "swiper";
+import 'swiper/css';
+
+SwiperCore.use([Pagination]);
 
 const { getStoredItem } = useLocalStorage();
 const router = useRouter();
@@ -31,24 +36,30 @@ onBeforeMount(() => {
     handleLoad();
     const resultStore = getStoredItem('result');
     pourcentage.value = resultStore.pourcentage;
-    console.log(pourcentage)
 })
 
 const image = computed(() => {
     return results.value.image || ''
 })
 
+const pages = computed(() => {
+    return results.value.result_pages || []
+})
+
 </script>
 
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <Loader v-if="loading" />
-                <div v-else class="card">
-                    <ResultSwipeContainer :image="image" :pourcentage="pourcentage" />
-                </div>
-            </div>
+        <Loader v-if="loading" />
+        <div v-else class="card">
+            <swiper :slides-per-view="1" :space-between="50" :pagination="{
+                clickable: true,
+            }">
+                <swiper-slide v-for="(page, index) in pages" :key="page.id">
+                    <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :last="index == pages.length - 1" />
+                </swiper-slide>
+            </swiper>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
 </template>
