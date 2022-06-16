@@ -15,7 +15,7 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->integer('quiz_id');
+            $table->bigInteger('quiz_id');
             $table->text('text');
             $table->string('image')->nullable();
             $table->boolean('is_sexist');

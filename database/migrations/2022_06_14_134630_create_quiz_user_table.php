@@ -15,9 +15,8 @@ class CreateQuizUserTable extends Migration
     {
         Schema::create('quiz_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('quiz_id');
-            //$table->string('name');
+            $table->bigInteger('user_id');
+            $table->bigInteger('quiz_id');
             $table->integer('status_live')->references('id')->on('questions');
             $table->enum('status', ['unfinish', 'finish'])->default('unfinish');
             $table->timestamps();
