@@ -35,9 +35,11 @@ onUpdated(() => {
             <div class="col-md-8">
                 <div class="card">
                     {{ props.question.text }}
-                    <div v-if="props.question.result != undefined">Select {{ props.question.result }}</div>
                     <button v-on:click="(e) => handleSelect(1)">Vrai</button>
                     <button v-on:click="(e) => handleSelect(0)">Faux</button>
+                    <div v-if="props.question.result != undefined">
+                        <button>Envoyer</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -20,4 +20,26 @@ class QuizzesController extends Controller
             'quiz' => $quiz,
         ]);
     }
+
+    public function resultQuizInitial(Request $request)
+    {
+        $quizInitial =  Quiz::findInitalQuiz();
+        $QuestionsWithResult = $request->quiz["questions"];
+
+        $numberOfQuestion = 0;
+        $answerGood = 0;
+
+        foreach ($QuestionsWithResult as $question) {
+            if ($question['is_sexist'] == $question['result']) {
+                $answerGood++;
+            }
+            $numberOfQuestion++;
+        }
+
+        $resultPourcentage = round($answerGood / $numberOfQuestion,2) * 100;
+
+        return response()->json([
+            'result' => $resultPourcentage,
+        ]);
+    }
 }

@@ -17,7 +17,7 @@ class CreateQuizUserTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('quiz_id');
-            $table->string('name');
+            //$table->string('name');
             $table->integer('status_live')->references('id')->on('questions');
             $table->enum('status', ['unfinish', 'finish'])->default('unfinish');
             $table->timestamps();

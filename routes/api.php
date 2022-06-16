@@ -20,4 +20,5 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/quiz/initial', [QuizzesController::class, 'initialQuiz']);
 Route::get('/quiz/{id}', [QuizzesController::class, 'show']);
+Route::post('/quiz/initial', [QuizzesController::class, 'resultQuizInitial']);
 

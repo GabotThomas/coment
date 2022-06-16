@@ -1,10 +1,17 @@
 <script setup>
 import { watch, ref, onBeforeMount, computed, onUpdated } from "vue";
 import useFetch from "../../hooks/useFetch";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import QuestionContainer from "./QuestionContainer.vue";
 import Loader from "../util/Loader.vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { POST } from "../../constants/methods";
 
+const { getStoredItem, setItemToStorage } = useLocalStorage();
+const router = useRouter();
 const [resultQuiz, loadQuiz, loadingQuiz] = useFetch();
+const [resultQuizSend, loadQuizSend, loadingQuizSend] = useFetch();
 
 const quiz = ref({});
 const index = ref(0);
@@ -14,6 +21,19 @@ const handleLoad = () => {
         url: "quiz/initial",
     });
 };
+
+const handleSend = () => {
+    loadQuizSend({
+        url: "quiz/initial",
+        method: POST,
+        body: { quiz: quiz.value }
+    });
+}
+
+const handleFinish = () => {
+    handleSend();
+    setItemToStorage({ ...quiz.value, status: 'finished' }, 'quiz')
+}
 
 const handleNext = () => {
     index.value++;
@@ -36,6 +56,10 @@ watch(resultQuiz, (currentValue, oldValue) => {
 
 onBeforeMount(() => {
     handleLoad();
+    const quiz = getStoredItem('quiz');
+    // if (quiz.status == 'finished') {
+    //     router.push({ name: "Login" });
+    // }
 })
 
 const question = computed(() => quiz.value.questions[index.value])
@@ -43,7 +67,6 @@ const next = computed(() => index.value < quiz.value.totalQuestion - 1)
 const prev = computed(() => index.value >= quiz.value.totalQuestion - 1)
 
 const allChecked = computed(() => {
-    console.log(quiz.value.questions)
     return quiz.value.questions.every(question => question.result != undefined);
 })
 
@@ -59,7 +82,7 @@ const allChecked = computed(() => {
                             <button v-if="next" v-on:click="handleNext">-></button>
                             <QuestionContainer :question="question" :handle-select="handleSelect" />
                             <div v-if="allChecked">
-                                <button>finish</button>
+                                <button v-on:click="handleFinish">finish</button>
                             </div>
                 </div>
             </div>
