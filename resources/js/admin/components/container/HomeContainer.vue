@@ -10,12 +10,13 @@ import router from "../../router";
 import formReducer, { setFormAction, setValueAction } from "../../../reducers/formReducer";
 import useActions from "../../../hooks/useActions";
 import { POST } from "../../../constants/methods";
+import QuestionFormLineVue from "../line/QuestionFormLine.vue";
 
 
 const props = defineProps({
     quiz: {
         type: Object,
-        default: {},
+        default: { questions: [{}] },
     },
 });
 
@@ -30,8 +31,19 @@ const [setForm, setValue] = useActions(dispatchState, [
 
 const handleChange = (e, { name, value }) => {
     setValue(name, value);
-    console.log(quiz.value)
 };
+
+const handleChangeQuestion = (index, value) => {
+    const arrayTemp = quiz.value.questions;
+    arrayTemp[index] = { ...arrayTemp[index], ...value };
+    setValue('questions', arrayTemp)
+}
+
+const handleAdd = () => {
+    const arrayTemp = quiz.value.questions;
+    arrayTemp.unshift({});
+    setValue('questions', arrayTemp)
+}
 
 const handleSave = () => {
     if (!quiz.value.id) {
@@ -64,24 +76,25 @@ onBeforeMount(() => {
         url: `quiz/${id}`,
     });
 });
+
+watch(quiz, (currentValue, oldValue) => {
+    console.log(quiz.value)
+})
+
 </script>
 
 <template>
     <div>
         <div>
             <h1>Ajouter un Quiz</h1>
-            <Input
-                :value="quiz.value.name"
-                :name="'name'"
-                :type="'text'"
-                :handle-change="handleChange"
-                :placeholder="'name'"
-            />
+            <Input :value="quiz.value.name" :name="'name'" :type="'text'" :handle-change="handleChange"
+                :placeholder="'name'" />
+            <button v-on:click="handleAdd">ADD</button>
+
+            <QuestionFormLineVue v-for="(question, index) in quiz.value.questions" :key="index"
+                :handle-change="handleChangeQuestion" :index="index" :value="question" />
             <div>
-                <button
-                    v-on:click="handleSave"
-                    class="btn btn-primary"
-                >
+                <button v-on:click="handleSave" class="btn btn-primary">
                     Sauvegarder
                 </button>
             </div>
