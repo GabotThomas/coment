@@ -25,12 +25,43 @@ cursor: pointer;
         background-color: $yellow-secondary;
         border-radius: 15px;
     }
+
+    &:disabled {
+        background-color: $disabled-gray;
+        color: $disabled-text;
+
+        &::before {
+            background-color: transparent;
+        }
+    }
 }
 
 .btn-secondary {
     border: 2px solid $yellow-primary;
     color: $yellow-primary;
     background-color: $white;
+}
+
+.btn-answer {
+    border: 2px solid $yellow-primary;
+    background-color: $white;
+}
+
+.btn-answer__yes {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 15px 271px 10px 21px;
+    border-bottom: none;
+}
+
+.btn-answer__no {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px 271px 15px 21px;
+}
+
+.active {
+    background: rgba(254, 204, 0, 0.2);
 }
 
 
