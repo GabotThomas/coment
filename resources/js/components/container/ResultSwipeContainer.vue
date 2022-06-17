@@ -1,17 +1,20 @@
 <script setup>
 
 const props = defineProps({
-    //result: Object,
     image: String,
     pourcentage: Number,
-    last: Boolean
+    text: String
 })
 
 </script>
 
 <template>
-    <div>
-        <img :src="props.image" />
-        <span>{{ props.pourcentage }}</span>
+    <div class="result-container">
+        <img :src="props.image" class="result-img mb-2" />
+        <h1 class="result-text">Tu as obtenu le score de </h1>
+        <div class="flex">
+            <span class="result-number">{{ props.pourcentage }}%</span>
+            <span class="mb-2">{{ props.text }}</span>
+        </div>
     </div>
 </template>

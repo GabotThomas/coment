@@ -44,7 +44,7 @@ watch(resultRegister, (currentValue, oldValue) => {
         px-2
       ">
       <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-        <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+        <h1 class="mb-8 text-3xl text-center">Création du profil</h1>
         <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4" name="name"
           placeholder="Full Name" @input="handleChange" :value="user.value.name || ''" />
 

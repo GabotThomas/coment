@@ -1,6 +1,6 @@
 .ui.input {
-    background: #f7f7f7;
-    border: 2px solid #e5e5e5;
+    background: $gray-F7F7F7;
+    border: 2px solid #AFAFAF;
     border-radius: 15px;
     padding: 0.6rem;
     width: calc(100% - 1.2rem);
@@ -8,4 +8,11 @@
 
 .ui.form {
     width: 100%;
+
+    .ui.label {
+        display: block;
+        margin: 0 0 6px 14px;
+        font-family: $font-family-sans-serif;
+        font-size: 15px;
+    }
 }
