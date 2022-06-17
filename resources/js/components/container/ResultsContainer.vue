@@ -59,7 +59,7 @@ const pages = computed(() => {
                     <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :last="index == pages.length - 1" />
                 </swiper-slide>
             </swiper>
-            <div class="swiper-pagination"></div>
+            <button v-on:click="handleFinish" class="btn btn-primary">En savoir plus</button>
         </div>
     </div>
 </template>
