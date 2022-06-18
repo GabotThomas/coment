@@ -8,6 +8,7 @@ import Loader from "../util/Loader.vue";
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/vue';
 import SwiperCore, { Pagination } from "swiper";
 import 'swiper/css';
+import Button from "../util/Button.vue";
 
 SwiperCore.use([Pagination]);
 
@@ -20,7 +21,7 @@ const [result, load, loading] = useFetch();
 const results = ref({});
 const pourcentage = ref();
 const swiperButton = ref({});
-const swiperChange = ref({});
+const activeIndex = ref(0);
 
 const handleLoad = () => {
     load({
@@ -48,15 +49,21 @@ const pages = computed(() => {
     return results.value.result_pages || []
 })
 
-const handleInit = (ev)=>{
-   swiperButton.value = ev;
-   console.log(swiperButton);
-   console.log("pages", pages);
+const handleInit = (ev) => {
+    swiperButton.value = ev;
 }
 
-const handleSlideChange = () => {
-
+const handleSlideChange = (e) => {
+    activeIndex.value = e.activeIndex;
 }
+
+const handleNext = (e) => {
+    swiperButton.value.slideNext();
+}
+
+const lastSlide = computed(() =>
+    activeIndex.value == results.value.totalPages - 1
+)
 
 </script>
 
@@ -68,10 +75,17 @@ const handleSlideChange = () => {
                 clickable: true
             }" @init="handleInit" @slide-change="handleSlideChange">
                 <swiper-slide v-for="(page) in pages" :key="page.id">
-                    <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :text="page.text" class="text-align"/>
+                    <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :text="page.text"
+                        class="text-align" />
                 </swiper-slide>
-            <button v-on:click="swiperButton.slideNext" class="btn btn-primary">En savoir plus</button>
-            <button class="btn btn-primary"><router-link class="btn-link-text" :to="{ name: 'Register' }">Continer</router-link></button>
+                <Button v-if="!lastSlide" v-on:click="handleNext" class="btn-primary">En
+                    savoir
+                    plus</Button>
+                <router-link v-else class="btn-link-text" :to="{ name: 'Register' }">
+                    <Button class="btn-primary">
+                        Continuer
+                    </Button>
+                </router-link>
             </swiper>
         </div>
     </div>
