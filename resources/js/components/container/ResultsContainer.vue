@@ -78,14 +78,16 @@ const lastSlide = computed(() =>
                     <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :text="page.text"
                         class="text-align" />
                 </swiper-slide>
-                <Button v-if="!lastSlide" v-on:click="handleNext" class="btn-primary">En
-                    savoir
-                    plus</Button>
-                <router-link v-else class="btn-link-text" :to="{ name: 'Register' }">
-                    <Button class="btn-primary">
-                        Continuer
-                    </Button>
-                </router-link>
+                <div class="pl-2 pr-2">
+                    <Button v-if="!lastSlide" v-on:click="handleNext" class="btn-primary">En
+                        savoir
+                        plus</Button>
+                    <router-link v-else class="btn-link-text" :to="{ name: 'Register' }">
+                        <Button class="btn-primary">
+                            Continuer
+                        </Button>
+                    </router-link>
+                </div>
             </swiper>
         </div>
     </div>
