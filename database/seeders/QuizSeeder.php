@@ -16,9 +16,18 @@ class QuizSeeder extends Seeder
     public function run()
     {
         Quiz::create([
-            'id'               => 1,
+            'id'                    => 1,
+            'level_id'              => 1,
             'name'                  => 'Initial',
             'is_initial'            => true,
+            'created_at'            => now(),
+            'updated_at'            => now(),
+        ]);
+        Quiz::create([
+            'id'                    => 2,
+            'level_id'              => 1,
+            'name'                  => 'Initial-second',
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);

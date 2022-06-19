@@ -15,6 +15,11 @@ class Quiz extends Model
         return $this->hasMany(Question::class);
     }
 
+    public function quizUser()
+    {
+        return $this->hasOne(QuizUser::class);
+    }
+
     public static function findQuiz($id)
     {
         return Quiz::with('questions')->where('id', '=', $id)
@@ -36,5 +41,23 @@ class Quiz extends Model
             ->firstOrFail();
 
         return $query;
+    }
+
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($item) {
+            $users = User::all();
+
+            foreach($users as $user){
+                $newQuizUser = new QuizUser();
+                $newQuizUser->user_id = $user->id;
+                $newQuizUser->quiz_id = $item->id;
+                $newQuizUser->status = 'unfinish';
+                $newQuizUser->save();
+            }
+        });
     }
 }

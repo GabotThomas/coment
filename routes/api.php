@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LevelUserController;
 use App\Http\Controllers\QuizzesController;
 use App\Http\Controllers\ResultController;
 use Illuminate\Http\Request;
@@ -26,4 +27,11 @@ Route::post('/quiz/initial', [QuizzesController::class, 'resultQuizInitial']);
 
 
 Route::get('/result/{id}', [ResultController::class, 'show']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', [AuthController::class, 'user']);
+
+    Route::get('/levels', [LevelUserController::class, 'index']);
+
+});
 

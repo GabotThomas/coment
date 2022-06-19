@@ -7,6 +7,7 @@ import QuestionContainer from "../components/container/QuestionContainer";
 import QuizContainer from "../components/container/QuizContainer";
 import QuizStartContainer from "../components/container/QuizStartContainer";
 import ResultsContainer from "../components/container/ResultsContainer";
+import DashboardContainer from "../components/container/DashboardContainer";
 import store from "../store/index.js";
 
 const routes = [
@@ -37,6 +38,11 @@ const routes = [
         path: "/results/:id",
         name: "Results",
         component: ResultsContainer,
+    },
+    {
+        path: "/dashboard",
+        name: "Dashboard",
+        component: DashboardContainer,
     },
 
     /*

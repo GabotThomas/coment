@@ -12,8 +12,8 @@ const store = useStore();
 const router = useRouter();
 const [resultLogin, loadLogin, loadingLogin] = useFetch();
 const [user, dispatchState] = useReducer(formReducer, {
-  email: "admin@mail.fr",
-  password: "adminadmin",
+  email: "test@yahoo.fr",
+  password: "Thomas77220;",
 });
 const [setValue] = useActions(dispatchState, [setValueAction]);
 const csrf = document.head.querySelector('meta[name="csrf-token"]').content;
@@ -35,7 +35,7 @@ watch(resultLogin, (currentValue, oldValue) => {
     localStorage.setItem("token", JSON.stringify(currentValue.access_token));
     store.commit("setToken", currentValue.access_token);
     store.commit("setUser", currentValue.user)
-    router.push({ name: "Home" });
+    router.push({ name: "Dashboard" });
   }
 });
 </script>

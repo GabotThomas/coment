@@ -9,7 +9,11 @@ import formReducer from "../../reducers/formReducer";
 import { useRouter } from "vue-router";
 
 const [resultRegister, loadRegister, loadingRegister] = useFetch();
-const [user, dispatchState] = useReducer(formReducer, {});
+const [user, dispatchState] = useReducer(formReducer, {
+  email: "test@yahoo.fr",
+  name: "Polak",
+  password: 'Thomas77220;'
+});
 const [setValue] = useActions(dispatchState, [setValueAction]);
 const router = useRouter();
 
