@@ -15,8 +15,10 @@ class LevelSeeder extends Seeder
     public function run()
     {
         Level::create([
-            'id'               => 1,
+            'id'                    => 1,
+            'level_state_id'        => 1,
             'name'                  => 'Initial',
+            'image'                  => '/storage/image/level/rainbow',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);

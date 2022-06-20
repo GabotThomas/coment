@@ -1,18 +1,16 @@
-
-
-@include generate-unit-style('margin', 0, 2, 0.25, '', 'm');
-@include generate-unit-style('margin-top', 0, 2, 0.25, '', 'mt');
-@include generate-unit-style('margin-bottom', 0, 2, 0.25, '', 'mb');
-@include generate-unit-style('margin-left', 0, 2, 0.25, '', 'ml');
-@include generate-unit-style('margin-right', 0, 2, 0.25, '', 'mr');
+@include generate-unit-style("margin", 0, 2, 0.25, "", "m");
+@include generate-unit-style("margin-top", 0, 2, 0.25, "", "mt");
+@include generate-unit-style("margin-bottom", 0, 2, 0.25, "", "mb");
+@include generate-unit-style("margin-left", 0, 2, 0.25, "", "ml");
+@include generate-unit-style("margin-right", 0, 2, 0.25, "", "mr");
 // padding
-@include generate-unit-style('padding', 0, 2, 0.25, '', 'p');
-@include generate-unit-style('padding-top', 0, 2, 0.25, '', 'pt');
-@include generate-unit-style('padding-bottom', 0, 2, 0.25, '', 'pb');
-@include generate-unit-style('padding-left', 0, 2, 0.25, '', 'pl');
-@include generate-unit-style('padding-right', 0, 2, 0.25, '', 'pr');
+@include generate-unit-style("padding", 0, 2, 0.25, "", "p");
+@include generate-unit-style("padding-top", 0, 2, 0.25, "", "pt");
+@include generate-unit-style("padding-bottom", 0, 2, 0.25, "", "pb");
+@include generate-unit-style("padding-left", 0, 2, 0.25, "", "pl");
+@include generate-unit-style("padding-right", 0, 2, 0.25, "", "pr");
 //gap
-@include generate-unit-style('gap', 0, 2, 0.25, '', 'gap');
+@include generate-unit-style("gap", 0, 2, 0.25, "", "gap");
 
 body {
     margin: 0;
@@ -181,12 +179,12 @@ button {
         }
 
         .progress-bar__before {
-                position: absolute;
-                content: "";
-                display: block;
-                height: 100%;
-                background-color: $yellow-primary;
-                border-radius: 15px;
+            position: absolute;
+            content: "";
+            display: block;
+            height: 100%;
+            background-color: $yellow-primary;
+            border-radius: 15px;
         }
     }
 
@@ -275,25 +273,49 @@ button {
     display: none;
 }
 
-
 .swiper-pagination {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
 
-        .swiper-pagination-bullet{
-            display: flex;
-            align-items: center;
-            width: 9px;
-            height: 9px;
-            background-color: $white;
-            border: 1px solid $yellow-primary;
-            border-radius: 50%;
-            display: inline-block;
-            margin: 10px;
-        }
+    .swiper-pagination-bullet {
+        display: flex;
+        align-items: center;
+        width: 9px;
+        height: 9px;
+        background-color: $white;
+        border: 1px solid $yellow-primary;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 10px;
+    }
 
-        .swiper-pagination-bullet-active {
-            background-color: $yellow-primary !important;
+    .swiper-pagination-bullet-active {
+        background-color: $yellow-primary !important;
+    }
+}
+
+.ui.container.level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .img-flag {
+        width: 250px;
+        height: auto;
+        position: relative;
+        img {
+            width: 100%;
+            height: auto;
         }
+        .level-flag {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -90%);
+            text-transform: uppercase;
+            font-weight: 900;
+            font-size: 15px;
+        }
+    }
 }
