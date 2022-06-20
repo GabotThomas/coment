@@ -135,21 +135,9 @@ button {
     }
 
     .flower-3 {
-        top: 494px;
-        left: -78px;
+        bottom: -77px;
+        right: 25px;
         width: 190px;
-    }
-
-    .flower-4 {
-        bottom: -68px;
-        right: -69px;
-        width: 230px;
-    }
-
-    .flower-5 {
-        width: 280px;
-        right: -84px;
-        top: 133px;
     }
 
     .confettis-1 {
@@ -262,6 +250,89 @@ button {
                 font-weight: 700;
             }
         }
+    }
+
+    .result-container_data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-size: 16px;
+            margin-bottom: 3rem;
+            text-align: start;
+            padding: 0 20px;
+        }
+
+        img {
+            width: 250px;
+        }
+    }
+
+    .result-container_stat {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-size: 16px;
+            text-align: start;
+            padding: 0 30px;
+            margin-bottom: 25px;
+        }
+
+        .result-stat {
+            display: flex;
+            padding: 0 30px;
+
+            .result-stat_text {
+                text-align: start;
+                width: 65%;
+                display: flex;
+                flex-direction: column;
+
+                h1 {
+                    font-size: 35px;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                p {
+                    font-size: 15px;
+                    margin: 0;
+                    word-spacing: 2px;
+                }
+            }
+
+            .result-stat_icon {
+                width: auto;
+                height: 60px;
+            }
+        }
+
+        .first {
+            justify-content: flex-start;
+        }
+
+        .second {
+            justify-content: flex-end;
+            width: 100%;
+
+            .result-stat_text {
+                margin-left: 2rem;
+                width: 175px;
+                padding-right: 30px;
+            }
+        }
+
+        .third {
+            .result-stat_icon {
+                margin-left: 17px;
+            }
+        }
+
     }
 }
 

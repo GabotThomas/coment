@@ -18,18 +18,19 @@ class QuestionSeeder extends Seeder
         Question::create([
             'id'               => 1,
             'quiz_id'                  => '1',
-            'text'                 => 'Le rôle, l’activité ou le comportement assigné.e.s aux femmes
-            véhicule.nt-il.s/elle.s un ou plusieurs stéréotypes sexistes ?',
-            'is_sexist'                  => true,
+            'text'                  => 'Le langage utilisé véhicule-t-il des stéréotypes sexistes ?',
+            'image'                 => '/storage/image/question/raimbow.json',
+            'is_sexist'             => true,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
         Question::create([
             'id'               => 2,
             'quiz_id'                  => '1',
-            'text'                 => 'Les métiers assignés aux personnages véhiculent-ils
-            des stéréotypes sexistes ?',
-            'is_sexist'                  => true,
+            'text'                  => 'Des stéréotypes sexistes ou les violences faites aux femmes sont-ils/
+            elles abordé.e.s sous l’angle de l’humour ou du second degré ?',
+            'image'                 => '/storage/image/question/electric.json',
+            'is_sexist'             => true,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);

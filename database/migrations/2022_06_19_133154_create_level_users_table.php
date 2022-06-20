@@ -15,13 +15,10 @@ class CreateLevelUsersTable extends Migration
     {
         Schema::create('level_users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('level_id')->index();
-            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('level_id');
+            $table->unsignedBigInteger('user_id');
             $table->enum('status', ['unfinish', 'current', 'finish'])->default('unfinish');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('level_id')->references('id')->on('level');
         });
     }
 

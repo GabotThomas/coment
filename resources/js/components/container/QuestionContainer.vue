@@ -2,6 +2,8 @@
 import { watch, ref, onBeforeMount, onUpdated, computed } from "vue";
 import useFetch from "../../hooks/useFetch";
 import { makeClassName } from "../../functions/index";
+import { Vue3Lottie } from 'vue3-lottie'
+import 'vue3-lottie/dist/style.css'
 
 const props = defineProps({
     question: Object,
@@ -10,21 +12,6 @@ const props = defineProps({
     next: Boolean
 })
 
-const [resultQuestions, loadQuestions, loadingQuestions] = useFetch();
-
-const questions = ref([]);
-
-const handleLoad = () => {
-    loadQuestions({
-        url: "quiz/1",
-    });
-};
-
-watch(resultQuestions, (currentValue, oldValue) => {
-    if (currentValue && currentValue.success) {
-        questions.value = currentValue.questions;
-    }
-});
 
 </script>
 
@@ -34,8 +21,8 @@ watch(resultQuestions, (currentValue, oldValue) => {
             <div class="col-md-8 h-100">
                 <div class="card question">
                     <div>
-                        <!--<h1> {{ props.question.text }} </h1>-->
-                        <h1 class="mb-2">Le langage utilisé véhicule-t-il des stéréotypes sexistes ?</h1>
+                        <h1 class="mb-0">{{ props.question.text }}</h1>
+                        <Vue3Lottie :animationLink="props.question.image" :height="160" :width="200"/>
                         <p class="question-text mb-2">Sont concernés les textes écrits, signatures, dialogues, voix off, chansons, etc. <br><br>
                             <span>Exemples :</span> « Mademoiselle » ; « Madame le Directeur » ; un produit fait pour « la » femme.
                             <span>Indicateur sémantique</span>

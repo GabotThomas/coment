@@ -45,6 +45,11 @@ const handleLogOut = () => {
             class="no-underline text-teal-dark border-b-2 border-teal-dark uppercase tracking-wide font-bold text-xs py-3 mr-8">
             <router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>
           </button>
+          <button
+            v-on:click="handleLogOut"
+            class="no-underline text-teal-dark border-b-2 border-teal-dark uppercase tracking-wide font-bold text-xs py-3 mr-8">
+            <div>Logout</div>
+          </button>
         </template>
       </div>
     </div>

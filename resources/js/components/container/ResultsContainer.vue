@@ -9,6 +9,9 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/vue';
 import SwiperCore, { Pagination } from "swiper";
 import 'swiper/css';
 import Button from "../util/Button.vue";
+import ResultStatContainer from "./ResultStatContainer.vue";
+import ResultDataContainer from "./ResultDataContainer.vue";
+import ResultRegisterContainer from "./ResultRegisterContainer.vue";
 
 SwiperCore.use([Pagination]);
 
@@ -77,6 +80,15 @@ const lastSlide = computed(() =>
                 <swiper-slide v-for="(page) in pages" :key="page.id">
                     <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :text="page.text"
                         class="text-align" />
+                </swiper-slide>
+                <swiper-slide>
+                    <ResultDataContainer></ResultDataContainer>
+                </swiper-slide>
+                <swiper-slide>
+                    <ResultStatContainer></ResultStatContainer>
+                </swiper-slide>
+                <swiper-slide>
+                    <ResultRegisterContainer></ResultRegisterContainer>
                 </swiper-slide>
                 <div class="pl-2 pr-2">
                     <Button v-if="!lastSlide" v-on:click="handleNext" class="btn-primary">En

@@ -91,8 +91,6 @@ watch(resultLogin, (currentValue, oldValue) => {
       <img src="../../../img/flowers/flower_1.svg" alt="" srcset="" class="flower flower-1">
       <img src="../../../img/flowers/flower_2.svg" alt="" srcset="" class="flower flower-2">
       <img src="../../../img/flowers/flower_2.svg" alt="" srcset="" class="flower flower-3">
-      <img src="../../../img/flowers/flower_4.svg" alt="" srcset="" class="flower flower-4">
-      <img src="../../../img/flowers/flower_5.svg" alt="" srcset="" class="flower flower-5">
     </div>
   </div>
 </template>

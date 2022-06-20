@@ -15,8 +15,10 @@ import InputPassword from "../form/module/InputPassword.vue";
 const [resultRegister, loadRegister, loadingRegister] = useFetch();
 const [user, dispatchState] = useReducer(formReducer, {
   email: "test@yahoo.fr",
-  name: "Polak",
-  password: 'Thomas77220;'
+  name: "Poliak",
+  lastname: 'Ov',
+  password: 'Thomas77220;',
+  confirm_password: 'Thomas77220;'
 });
 const [setValue] = useActions(dispatchState, [setValueAction]);
 const router = useRouter();
@@ -86,7 +88,7 @@ watch(resultRegister, (currentValue, oldValue) => {
             </div>
         </form>
         <div class="bg">
-        <img src="../../../img/confettis/confettis.svg" alt="" srcset="" class="confettis confettis-1">
+        <!-- <img src="../../../img/confettis/confettis.svg" alt="" srcset="" class="confettis confettis-1"> -->
     </div>
       </div>
     </div>
