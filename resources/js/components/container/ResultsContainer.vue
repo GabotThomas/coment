@@ -65,7 +65,7 @@ const handleNext = (e) => {
 }
 
 const lastSlide = computed(() =>
-    activeIndex.value == results.value.totalPages - 1
+    activeIndex.value == results.value.totalPages + 2
 )
 
 </script>
@@ -95,12 +95,17 @@ const lastSlide = computed(() =>
                 </swiper-slide>
 
                 <div class="pl-2 pr-2">
-                    <Button v-if="!lastSlide" v-on:click="handleNext" class="btn-primary">En
+                    <Button v-if="!lastSlide" v-on:click="handleNext" class="btn-primary mb-0_5">En
                         savoir
                         plus</Button>
                     <router-link v-else class="btn-link-text" :to="{ name: 'Register' }">
-                        <Button class="btn-primary">
-                            Continuer
+                        <Button class="btn-primary mb-0_5">
+                            S'inscrire
+                        </Button>
+                    </router-link>
+                    <router-link class="btn-link-text" :to="{ name: 'Home' }">
+                        <Button class="btn-secondary">
+                            Retour
                         </Button>
                     </router-link>
                 </div>

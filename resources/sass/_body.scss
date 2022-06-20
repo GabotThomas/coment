@@ -32,13 +32,27 @@ button {
 .ui.container.home {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     height: 80vh;
     padding: 2rem;
 
-    img {
-        width: 200px;
+    .home-bg {
+        width: 100%;
+        position: fixed;
+        top: 0;
+    }
+
+    .home-title {
+        margin: 0 0 2rem 0;
+    }
+
+    .home-texte {
+        margin: 0 0 40px 0;
+    }
+
+    .home-texte_title {
+        margin-bottom: 0 0 7px 0;
     }
 
     .button-start {
