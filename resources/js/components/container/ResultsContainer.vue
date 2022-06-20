@@ -76,20 +76,24 @@ const lastSlide = computed(() =>
         <div v-else class="card">
             <swiper :slides-per-view="1" :space-between="50" :pagination="{
                 clickable: true
-            }" @init="handleInit" @slide-change="handleSlideChange">
+                }" @init="handleInit" @slide-change="handleSlideChange">
                 <swiper-slide v-for="(page) in pages" :key="page.id">
                     <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :text="page.text"
                         class="text-align" />
                 </swiper-slide>
+
                 <swiper-slide>
-                    <ResultDataContainer></ResultDataContainer>
+                    <ResultDataContainer/>
                 </swiper-slide>
+
                 <swiper-slide>
-                    <ResultStatContainer></ResultStatContainer>
+                    <ResultStatContainer/>
                 </swiper-slide>
+
                 <swiper-slide>
-                    <ResultRegisterContainer></ResultRegisterContainer>
+                    <ResultRegisterContainer/>
                 </swiper-slide>
+
                 <div class="pl-2 pr-2">
                     <Button v-if="!lastSlide" v-on:click="handleNext" class="btn-primary">En
                         savoir

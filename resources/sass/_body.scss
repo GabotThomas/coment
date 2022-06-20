@@ -334,6 +334,48 @@ button {
         }
 
     }
+
+    .result-container_register {
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 180px;
+            height: auto;
+            margin-bottom: 23px;
+        }
+
+        h1 {
+            margin-bottom: 2rem !important;
+        }
+
+        ul {
+            padding-left: 24px;
+            margin: 0;
+            line-height: 22px;
+        }
+
+        .flower {
+            position: fixed;
+            z-index: -2;
+            opacity: 0.1;
+            margin: 0;
+        }
+
+        .result-flower_1 {
+            width: 235px;
+            left: -60px;
+            top: 27%;
+        }
+
+        .result-flower_2 {
+            width: 280px;
+            right: -127px;
+            bottom: -11%;
+        }
+    }
 }
 
 .justify-start {
