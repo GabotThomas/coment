@@ -6,6 +6,9 @@ border: none;
 font-size: 0.75rem;
 font-weight: 900;
 text-transform: uppercase;
+text-decoration: none;
+text-align: center;
+color: #000000;
 cursor: pointer;
 }
 .btn-container{
@@ -15,7 +18,6 @@ cursor: pointer;
 .btn-primary {
     position: relative;
     background-color: $yellow-primary;
-    color: $white;
 
     &::before {
         position: absolute;
@@ -36,6 +38,10 @@ cursor: pointer;
         &::before {
             background-color: transparent;
         }
+    }
+
+    &:active {
+        background-color: $white;
     }
 }
 

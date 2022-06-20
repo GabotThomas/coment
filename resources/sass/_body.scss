@@ -23,19 +23,42 @@ h1 {
     font-weight: 700;
     font-size: 1.4rem;
     font-family: $font-family-second;
+    text-align: center;
+
 }
 
 button {
     font-family: $font-family-sans-serif;
 }
 
-.ui.container.login {
+.ui.container.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+    padding: 2rem;
+
+    img {
+        width: 200px;
+    }
+
+    .button-start {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.ui.container.login,
+.ui.container.register  {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 80vh;
     padding: 2rem;
+
     .switch-login {
         display: flex;
         gap: 0.7rem;
@@ -54,8 +77,20 @@ button {
         }
     }
 
-    .password-login {
+    .password-login,
+    .password-register {
         position: relative;
+
+        .ui.password {
+            position: relative;
+
+            .show-password {
+                position: absolute;
+                top: 50% !important;
+                transform: translateY(-50%);
+                right: 1rem;
+            }
+        }
 
         .forgot-password {
             display: block;
@@ -67,7 +102,8 @@ button {
         }
     }
 
-    .login-text {
+    .login-text,
+    .register-text {
         text-align: center;
         color: $gray-AFAFAF;
         font-size: 0.75rem;
@@ -82,7 +118,8 @@ button {
         }
     }
 
-    .flower {
+    .flower,
+    .confettis {
         position: fixed;
         z-index: -2;
     }
@@ -116,6 +153,11 @@ button {
         right: -84px;
         top: 133px;
     }
+
+    .confettis-1 {
+        top: 0;
+        left: 0;
+    }
 }
 
 .ui.container.quiz {
@@ -123,6 +165,7 @@ button {
     flex-direction: column;
     justify-content: center;
     padding: 2rem;
+    height: 90vh;
 
     .arrow-left {
         width: 100%;
@@ -147,25 +190,42 @@ button {
         }
     }
 
-    .question {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    .ui.container.question {
+        height: 100%;
 
-        h1 {
-            text-align: center;
-            font-size: 1rem;
-        }
+        .h-100 {
+            height: 100%;
 
-        .question-text {
-            margin: 0;
-            font-family: $font-family-sans-serif;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 22px;
+            .h-100 {
+                height: 100%;
 
-            span {
-                color: $yellow-primary;
+                .question {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 100%;
+
+                    h1 {
+                        font-size: 1rem;
+                    }
+
+                    .question-text {
+                        margin: 0;
+                        font-family: $font-family-sans-serif;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        line-height: 22px;
+
+                        span {
+                            color: $yellow-primary;
+                        }
+                    }
+
+                    .questions-button {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
             }
         }
     }

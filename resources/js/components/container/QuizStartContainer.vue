@@ -29,9 +29,13 @@ watch(resultQuestions, (currentValue, oldValue) => {
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <span>TESTER VOS CONNAISSANCES</span>
-                    <router-link :to="{ name: 'QuizInitial' }">Start</router-link>
+                <div class="card ui container home">
+                    <h1>Nom de l'app</h1>
+                    <img src="../../../img/daniel-monteiro-COgbRUTvL-s-unsplash.jpg" alt="" srcset="">
+                    <div class="button-start">
+                        <router-link :to="{ name: 'QuizInitial' }" class="btn btn-primary mb-0_5">C'est parti !</router-link>
+                        <router-link :to="{ name: 'Login' }" class="btn btn-secondary">J'ai déjà un compte</router-link>
+                    </div>
                 </div>
             </div>
         </div>

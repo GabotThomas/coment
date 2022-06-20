@@ -99,8 +99,8 @@ const allChecked = computed(() => {
                     </div>
                     <QuestionContainer :question="question" :handle-select="handleSelect" :handle-next="handleNext"
                         :next="next" />
-                    <div v-if="allChecked">
-                        <button v-on:click="handleFinish" class="btn btn-primary">Terminer</button>
+                    <div v-if="!next">
+                        <button v-on:click="handleFinish" class="btn btn-primary" :disabled="!allChecked">Terminer</button>
                     </div>
                 </div>
             </div>

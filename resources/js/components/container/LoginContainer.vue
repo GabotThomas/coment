@@ -7,6 +7,8 @@ import useReducer from "../../hooks/useReducer";
 import formReducer, { setValueAction } from "../../reducers/formReducer";
 import useActions from "../../hooks/useActions";
 import { POST } from "../../constants/methods";
+import PasswordField from "../container/PasswordField.vue";
+import InputPassword from "../form/module/InputPassword.vue";
 
 const store = useStore();
 const router = useRouter();
@@ -28,6 +30,10 @@ const handleSubmit = () => {
 
 const handleChange = ({ target }) => {
   setValue(target.name, target.value);
+};
+
+const password = (e, { name, value }) => {
+  setValue(name, value);
 };
 
 watch(resultLogin, (currentValue, oldValue) => {
@@ -52,8 +58,7 @@ watch(resultLogin, (currentValue, oldValue) => {
       </div>
       <div class="password-login mb-1_5">
         <span class="ui label">Mot de passe</span>
-        <input class="ui input" id="password" type="password" name="password" placeholder="Entrez votre mot de passe"
-          @input="handleChange" :value="user.value.password || ''" />
+        <InputPassword :handle-change="password" :value="user.value.password || ''" placeholder="Entrez votre mot de passe" name="password"></InputPassword>
         <a href="" class="forgot-password">Mot de passe oublié ?</a>
       </div>
       <div class="">

@@ -7,6 +7,10 @@ import useActions from "../../hooks/useActions";
 import { setValueAction } from "../../reducers/formReducer";
 import formReducer from "../../reducers/formReducer";
 import { useRouter } from "vue-router";
+import { Vue3Lottie } from 'vue3-lottie'
+import 'vue3-lottie/dist/style.css'
+import Electric from "../../../img/json/electric.json";
+import InputPassword from "../form/module/InputPassword.vue";
 
 const [resultRegister, loadRegister, loadingRegister] = useFetch();
 const [user, dispatchState] = useReducer(formReducer, {
@@ -29,6 +33,10 @@ const handleChange = ({ target }) => {
   setValue(target.name, target.value);
 };
 
+const password = (e, { name, value }) => {
+  setValue(name, value);
+};
+
 watch(resultRegister, (currentValue, oldValue) => {
   if (currentValue && currentValue.success) {
     router.push({ name: "Login" });
@@ -37,58 +45,49 @@ watch(resultRegister, (currentValue, oldValue) => {
 </script>
 
 <template>
-  <div class="bg-grey-lighter min-h-screen flex flex-col">
-    <div class="
-        container
-        max-w-sm
-        mx-auto
-        flex-1 flex flex-col
-        items-center
-        justify-center
-        px-2
-      ">
-      <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-        <h1 class="mb-8 text-3xl text-center">Création du profil</h1>
-        <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4" name="name"
-          placeholder="Full Name" @input="handleChange" :value="user.value.name || ''" />
+  <div class="ui container register">
+    <div class="container">
+      <!-- <Vue3Lottie :animationData="Electric" :height="200" :width="200" /> -->
+      <div class="">
+        <h1 class="text-center mb-1_5">Création du profil</h1>
+        <form class="ui form">
+            <span class="ui label">Pénom</span>
+            <input type="text" class="mb-0_5 ui input" name="name"
+            placeholder="Entrez votre prénom" @input="handleChange" :value="user.value.name || ''" />
 
-        <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4" name="email"
-          placeholder="Email" @input="handleChange" :value="user.value.email || ''" />
+            <span class="ui label">Nom</span>
+            <input type="text" class="mb-0_5 ui input" name="lastname"
+            placeholder="Entrez votre nom" @input="handleChange" :value="user.value.lastname || ''" />
 
-        <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4" name="password"
-          placeholder="Password" @input="handleChange" :value="user.value.password || ''" />
-        <input type="password" class="block border border-grey-light w-full p-3 rounded mb-4" name="confirm_password"
-          placeholder="Confirm Password" />
+            <span class="ui label">Adresse e-mail</span>
+            <input type="text" class="ui input mb-0_5" name="email"
+            placeholder="Entrez votre adresse e-mail" @input="handleChange" :value="user.value.email || ''" />
 
-        <button type="submit" class="
-            w-full
-            text-center
-            py-3
-            rounded
-            bg-green-600
-            text-white
-            hover:bg-green-700
-            focus:outline-none
-            my-1
-          " v-on:click.prevent="handleSubmit">
-          Create Account
-        </button>
+            <div class="password-register mb-0_5">
+                <span class="ui label">Mot de passe</span>
+                <InputPassword :handle-change="password" :value="user.value.password || ''" placeholder="Entrez votre mot de passe" name="password"></InputPassword>
+            </div>
+            <div class="password-register mb-1_5">
+                <span class="ui label">Confirmation du mot de passe</span>
+                <InputPassword :handle-change="password" :value="user.value.confirm_password || ''" placeholder="Confirmer votre mot de passe" name="confirm_password"></InputPassword>
+            </div>
 
-        <div class="text-center text-sm text-grey-dark mt-4">
-          By signing up, you agree to the
-          <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-            Terms of Service
-          </a>
-          and
-          <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-            Privacy Policy
-          </a>
-        </div>
-      </div>
+            <button type="submit" class="btn btn-primary mb-1_5" v-on:click.prevent="handleSubmit">
+            CRÉER MON COMPTE
+            </button>
+            <span class="switch-login mb-1_5">ou</span>
+            <div class="register-text mb-1">
+                <span>En te connectant à [Nom de l’appli], tu acceptes nos <b>Conditions d’utilisation</b> et notre <b>Politique de confidentialité.</b></span>
+            </div>
+            <input type="hidden" name="_token" :value="csrf">
 
-      <div class="text-grey-dark mt-6">
-        Already have an account?
-        <router-link class="no-underline border-b border-blue text-blue" :to="{ name: 'Login' }">Login</router-link>.
+            <div class="fw-900 text-register">
+                <span>Tu as déjà un compte ? <router-link class="yellow" :to="{ name: 'Login' }">&nbsp; SE CONNECTER</router-link></span>
+            </div>
+        </form>
+        <div class="bg">
+        <img src="../../../img/confettis/confettis.svg" alt="" srcset="" class="confettis confettis-1">
+    </div>
       </div>
     </div>
   </div>
