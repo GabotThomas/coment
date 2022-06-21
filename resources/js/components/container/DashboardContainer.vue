@@ -31,36 +31,39 @@ const calcProgress = (pourcentage) => {
 
 <template>
     <div class="ui container level">
-        <div v-for="levelState in levelStates" :key="levelState.id">
+        <div v-for="levelState in levelStates" :key="levelState.id" class="level-state">
             <div class="level-title_container">
                 <div class="img-flag">
-                    <img :src="Flag" alt="">
+                    <img :src="levelState.image + '.png'" alt="" class="img-smiley">
+                    <img :src="Flag + '.png'" alt="">
                     <div class="level-flag">niveau {{ levelState.level }}</div>
                 </div>
             </div>
-            <div v-for="level in levelState.levels" :key="level.id">
-                <div class="circle-wrap">
-                    <div class="circle-state">
-                        <div class="circle">
-                            <div class="mask full" :style="calcProgress(level.pourcentage)
-                            ">
-                                <div class="fill" :style="calcProgress(level.pourcentage)
-                                "></div>
-                            </div>
-                            <div class="mask half">
-                                <div class="fill" :style="calcProgress(level.pourcentage)
-                                "></div>
+            <div class="ui level">
+                <div v-for="level in levelState.levels" :key="level.id" class="level">
+                    <div class="circle-wrap">
+                        <div class="circle-state">
+                            <div class="circle">
+                                <div class="mask full" :style="calcProgress(level.pourcentage)
+                                ">
+                                    <div class="fill" :style="calcProgress(level.pourcentage)
+                                    "></div>
+                                </div>
+                                <div class="mask half">
+                                    <div class="fill" :style="calcProgress(level.pourcentage)
+                                    "></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="inside-circle deep">
-                        <div class="deep-circle deep">
-                            <img :src="level.image + '.png'" />
+                        <div class="inside-circle deep">
+                            <div class="deep-circle deep">
+                                <img :src="level.image + '.png'" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="outline-img">
-                        <img v-if="level.pourcentage == 100" :src="Diamond" />
-                        <img v-else :src="DiamondWhite" />
+                        <div class="outline-img">
+                            <img v-if="level.pourcentage == 100" :src="Diamond" />
+                            <img v-else :src="DiamondWhite" />
+                        </div>
                     </div>
                 </div>
             </div>

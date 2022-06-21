@@ -13,7 +13,5 @@
                 <li><b>Contactez</b> anonynement un psychologue grâce à notre plateforme de messagerie instantanée. <br>Et pleins <b>bien plus encore !</b></li>
             </ul>
         </div>
-        <img src="../../../img/flowers/flower_1.svg" alt="" srcset="" class="flower result-flower_1"/>
-        <img src="../../../img/flowers/flower_3.svg" alt="" srcset="" class="flower result-flower_2"/>
     </div>
 </template>

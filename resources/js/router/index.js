@@ -8,6 +8,7 @@ import QuizContainer from "../components/container/QuizContainer";
 import QuizStartContainer from "../components/container/QuizStartContainer";
 import ResultsContainer from "../components/container/ResultsContainer";
 import DashboardContainer from "../components/container/DashboardContainer";
+import ProfileContainer from "../components/container/ProfileContainer";
 import store from "../store/index.js";
 
 const routes = [
@@ -44,6 +45,11 @@ const routes = [
         name: "Dashboard",
         component: DashboardContainer,
     },
+    {
+        path: '/profile/:id',
+        name: "Profile",
+        component: ProfileContainer,
+    }
 
     /*
     {

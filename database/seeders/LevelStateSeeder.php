@@ -17,12 +17,15 @@ class LevelStateSeeder extends Seeder
         LevelState::create([
             'id'               => 1,
             'level'                  => '1',
+            'image'                 => '/storage/image/level/smiley-1',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
+
         LevelState::create([
             'id'               => 2,
             'level'                  => '2',
+            'image'                 => '/storage/image/level/smiley-2',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);

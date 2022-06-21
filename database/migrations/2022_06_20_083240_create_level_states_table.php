@@ -16,6 +16,7 @@ class CreateLevelStatesTable extends Migration
         Schema::create('level_states', function (Blueprint $table) {
             $table->id();
             $table->integer('level');
+            $table->string('image');
             $table->timestamps();
         });
     }
