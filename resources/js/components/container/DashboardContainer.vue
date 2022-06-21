@@ -3,6 +3,7 @@ import { onBeforeMount, watch, ref, computed } from "@vue/runtime-core";
 import useFetch from "../../hooks/useFetch";
 import Flag from '../../../img/level/flag.png';
 import Diamond from '../../../img/level/diamond.png'
+import DiamondWhite from '../../../img/level/diamond-white.png'
 
 const [result, load, loading] = useFetch();
 const levelStates = ref([]);
@@ -58,7 +59,8 @@ const calcProgress = (pourcentage) => {
                         </div>
                     </div>
                     <div class="outline-img">
-                        <img :src="Diamond" />
+                        <img v-if="level.pourcentage == 100" :src="Diamond" />
+                        <img v-else :src="DiamondWhite" />
                     </div>
                 </div>
             </div>

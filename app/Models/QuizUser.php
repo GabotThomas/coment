@@ -11,11 +11,18 @@ class QuizUser extends Model
 
     public function user()
     {
-        return $this->morphOne(User::class,'user');
+        return $this->morphOne(User::class, 'user');
     }
 
     public function quiz()
     {
-        return $this->morphOne(Quiz::class,'quiz');
+        return $this->hasOne(Quiz::class, 'id', 'quiz_id');
+    }
+
+    public static function findInitalQuiz($idUser)
+    {
+        return QuizUser::whereRelation('quiz', 'is_initial', 1)
+            ->where('user_id', '=', $idUser)
+            ->firstOrFail();
     }
 }

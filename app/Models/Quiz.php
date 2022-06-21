@@ -51,7 +51,7 @@ class Quiz extends Model
         static::created(function ($item) {
             $users = User::all();
 
-            foreach($users as $user){
+            foreach ($users as $user) {
                 $newQuizUser = new QuizUser();
                 $newQuizUser->user_id = $user->id;
                 $newQuizUser->quiz_id = $item->id;
