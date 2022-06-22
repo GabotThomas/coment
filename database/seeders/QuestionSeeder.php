@@ -15,6 +15,7 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
+        //Level - 1 //Quiz - 1
         Question::create([
             'id'                    => 1,
             'quiz_id'               => '1',
@@ -35,6 +36,7 @@ class QuestionSeeder extends Seeder
             'updated_at'            => now(),
         ]);
 
+        //Level - 1 //Quiz - 2
         Question::create([
             'id'                    => 3,
             'quiz_id'               => '2',
@@ -49,6 +51,41 @@ class QuestionSeeder extends Seeder
             'quiz_id'               => '2',
             'text'                  => 'Lorem ipsum dolor sit amet. Aut neque exercitationem modi ?',
             'image'                 => '/storage/image/question/electric.json',
+            'is_sexist'             => true,
+            'created_at'            => now(),
+            'updated_at'            => now(),
+        ]);
+        Question::create([
+            'id'                    => 5,
+            'quiz_id'               => '2',
+            'text'                  => 'Lorem ipsum dolor sit amet. Aut neque exercitationem modi ????',
+            'image'                 => '/storage/image/question/messenger.json',
+            'is_sexist'             => true,
+            'created_at'            => now(),
+            'updated_at'            => now(),
+        ]);
+
+        //Level - 2 //Quiz - 1
+        Question::create([
+            'quiz_id'               => '3',
+            'text'                  => 'Lorem ipsum dolor sit amet ?',
+            'image'                 => '/storage/image/question/raimbow.json',
+            'is_sexist'             => false,
+            'created_at'            => now(),
+            'updated_at'            => now(),
+        ]);
+        Question::create([
+            'quiz_id'               => '3',
+            'text'                  => 'Lorem ipsum dolor sit amet. Aut neque exercitationem modi ?',
+            'image'                 => '/storage/image/question/electric.json',
+            'is_sexist'             => true,
+            'created_at'            => now(),
+            'updated_at'            => now(),
+        ]);
+        Question::create([
+            'quiz_id'               => '3',
+            'text'                  => 'Lorem ipsum dolor sit amet. Aut neque exercitationem modi ????',
+            'image'                 => '/storage/image/question/messenger.json',
             'is_sexist'             => true,
             'created_at'            => now(),
             'updated_at'            => now(),

@@ -9,24 +9,23 @@ import { useRouter } from "vue-router";
 import { POST } from "../../constants/methods";
 import arrowLeft from "../../../img/icons/arrow.png";
 
-
+const { getStoredItem, setItemToStorage } = useLocalStorage();
 const router = useRouter();
 const [resultQuiz, loadQuiz, loadingQuiz] = useFetch();
 const [resultQuizSend, loadQuizSend, loadingQuizSend] = useFetch();
-const { id } = router.currentRoute.value.params;
 
 const quiz = ref({});
 const index = ref(0);
 
 const handleLoad = () => {
     loadQuiz({
-        url: `level/${id}`,
+        url: "quiz/initial",
     });
 };
 
 const handleSend = () => {
     loadQuizSend({
-        url: "quiz/save",
+        url: "quiz/initial",
         method: POST,
         body: { quiz: quiz.value }
     });
@@ -34,6 +33,7 @@ const handleSend = () => {
 
 const handleFinish = () => {
     handleSend();
+    setItemToStorage({ ...quiz.value, status: 'finished' }, 'quiz')
 }
 
 const handleNext = () => {
@@ -51,21 +51,26 @@ const handleSelect = (result) => {
 
 watch(resultQuiz, (currentValue, oldValue) => {
     if (currentValue && currentValue.success) {
-        quiz.value = {
-            ...currentValue.lastQuiz.quiz,
-            totalQuestion: currentValue.lastQuiz.totalQuestion
-        };
+        quiz.value = currentValue.quiz;
     }
 });
 
 watch(resultQuizSend, (currentValue, oldValue) => {
     if (currentValue && currentValue.success) {
-        router.push({ name: "Results", params: { id: currentValue.resultUser } });
+        setItemToStorage({
+            id: currentValue.result,
+            pourcentage: currentValue.pourcentage
+        }, 'result')
+        router.push({ name: "ResultsInitial", params: { id: currentValue.result } });
     }
 });
 
 onBeforeMount(() => {
     handleLoad();
+    const quiz = getStoredItem('quiz');
+    // if (quiz.status == 'finished') {
+    //     router.push({ name: "Login" });
+    // }
 })
 
 const question = computed(() => quiz.value.questions[index.value])

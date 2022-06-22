@@ -29,10 +29,12 @@ class Quiz extends Model
     public static function findInitalQuiz()
     {
         $subquery = function ($q) {
-            $q->select([DB::raw('COUNT(questions.id)')])
+            $q->select(DB::raw('COUNT(questions.id)'))
                 ->from('quizzes')
                 ->join("questions", "questions.quiz_id", "=", "quizzes.id")
-                ->where('quizzes.is_initial', '=', 1);
+                ->where('quizzes.is_initial', '=', 1)
+                ->groupBy('quizzes.id')
+                ;
         };
 
         $query = Quiz::with('questions')

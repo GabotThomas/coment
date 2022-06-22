@@ -14,4 +14,12 @@ class LevelUserController extends Controller
             'levels' => $levels,
         ]);
     }
+
+    public function lastQuizOfLevel(Request $request){
+        $lastQuiz = LevelUser::lastQuizOfLevel($request->id);
+
+        return response()->json([
+            'lastQuiz' => $lastQuiz,
+        ]);
+    }   
 }

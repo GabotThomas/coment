@@ -41,30 +41,32 @@ const calcProgress = (pourcentage) => {
             </div>
             <div class="ui level">
                 <div v-for="level in levelState.levels" :key="level.id" class="level">
-                    <div class="circle-wrap">
-                        <div class="circle-state">
-                            <div class="circle">
-                                <div class="mask full" :style="calcProgress(level.pourcentage)
-                                ">
-                                    <div class="fill" :style="calcProgress(level.pourcentage)
-                                    "></div>
-                                </div>
-                                <div class="mask half">
-                                    <div class="fill" :style="calcProgress(level.pourcentage)
-                                    "></div>
+                    <router-link :to="{ name: 'Quiz', params: { id: level.id } }">
+                        <div class="circle-wrap">
+                            <div class="circle-state">
+                                <div class="circle">
+                                    <div class="mask full" :style="calcProgress(level.pourcentage)
+                                    ">
+                                        <div class="fill" :style="calcProgress(level.pourcentage)
+                                        "></div>
+                                    </div>
+                                    <div class="mask half">
+                                        <div class="fill" :style="calcProgress(level.pourcentage)
+                                        "></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="inside-circle deep">
-                            <div class="deep-circle deep">
-                                <img :src="level.image + '.png'" />
+                            <div class="inside-circle deep">
+                                <div class="deep-circle deep">
+                                    <img :src="level.image + '.png'" />
+                                </div>
+                            </div>
+                            <div class="outline-img">
+                                <img v-if="level.pourcentage == 100" :src="Diamond" />
+                                <img v-else :src="DiamondWhite" />
                             </div>
                         </div>
-                        <div class="outline-img">
-                            <img v-if="level.pourcentage == 100" :src="Diamond" />
-                            <img v-else :src="DiamondWhite" />
-                        </div>
-                    </div>
+                    </router-link>
                 </div>
             </div>
         </div>

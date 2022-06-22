@@ -5,6 +5,7 @@ use App\Http\Controllers\LevelStateController;
 use App\Http\Controllers\LevelUserController;
 use App\Http\Controllers\QuizzesController;
 use App\Http\Controllers\ResultController;
+use App\Models\LevelUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,12 +28,16 @@ Route::get('/quiz/{id}', [QuizzesController::class, 'show']);
 Route::post('/quiz/initial', [QuizzesController::class, 'resultQuizInitial']);
 
 
-Route::get('/result/{id}', [ResultController::class, 'show']);
+Route::get('/result/initial/{id}', [ResultController::class, 'show']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
 
     Route::get('/levelStates', [LevelStateController::class, 'index']);
 
-});
+    Route::get('/level/{id}', [LevelUserController::class, 'lastQuizOfLevel']);
 
+    Route::post('/quiz/save', [ResultController::class, 'createResultQuiz']);
+
+    Route::get('/result/{id}', [ResultController::class, 'showResultQuiz']);
+});

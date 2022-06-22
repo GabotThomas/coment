@@ -9,16 +9,23 @@ class Level extends Model
 {
     use HasFactory;
 
-    public function levelUsers(){
+    public function levelUsers()
+    {
         return $this->hasMany(LevelUser::class);
     }
 
-    public function quizzes(){
+    public function quizzes()
+    {
         return $this->hasMany(Quiz::class);
     }
 
+    public function quizUsers()
+    {
+        return $this->hasMany(QuizUser::class);
+    }
 
-    public static function getAll(){
+    public static function getAll()
+    {
         return Level::with('quizzes')->get();
     }
 
@@ -29,7 +36,7 @@ class Level extends Model
         static::created(function ($item) {
             $users = User::all();
 
-            foreach($users as $user){
+            foreach ($users as $user) {
                 $newLevelUser = new LevelUser();
                 $newLevelUser->user_id = $user->id;
                 $newLevelUser->level_id = $item->id;

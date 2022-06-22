@@ -46,4 +46,9 @@ class QuizzesController extends Controller
             'result' => $result->id
         ]);
     }
+
+    public function resultQuiz(Request $request)
+    {
+        
+    }
 }

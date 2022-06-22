@@ -15,7 +15,6 @@ import ResultRegisterContainer from "./ResultRegisterContainer.vue";
 
 SwiperCore.use([Pagination]);
 
-const { getStoredItem } = useLocalStorage();
 const router = useRouter();
 const { id } = router.currentRoute.value.params;
 
@@ -34,14 +33,13 @@ const handleLoad = () => {
 
 watch(result, (currentValue, oldValue) => {
     if (currentValue && currentValue.success) {
-        results.value = currentValue.result;
+        results.value = currentValue.resultUser.result;
+        pourcentage.value = currentValue.resultUser.score;
     }
 });
 
 onBeforeMount(() => {
     handleLoad();
-    const resultStore = getStoredItem('result');
-    pourcentage.value = resultStore.pourcentage;
 })
 
 const image = computed(() => {
@@ -65,7 +63,7 @@ const handleNext = (e) => {
 }
 
 const lastSlide = computed(() =>
-    activeIndex.value == results.value.totalPages + 2
+    activeIndex.value == results.value.totalPages - 1
 )
 
 </script>
@@ -76,34 +74,16 @@ const lastSlide = computed(() =>
         <div v-else class="card">
             <swiper :slides-per-view="1" :space-between="50" :pagination="{
                 clickable: true
-                }" @init="handleInit" @slide-change="handleSlideChange">
+            }" @init="handleInit" @slide-change="handleSlideChange">
                 <swiper-slide v-for="(page) in pages" :key="page.id">
                     <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :text="page.text"
                         class="text-align" />
                 </swiper-slide>
-
-                <swiper-slide>
-                    <ResultDataContainer/>
-                </swiper-slide>
-
-                <swiper-slide>
-                    <ResultStatContainer/>
-                </swiper-slide>
-
-                <swiper-slide>
-                    <ResultRegisterContainer/>
-                </swiper-slide>
-
                 <div class="pl-2 pr-2">
                     <Button v-if="!lastSlide" v-on:click="handleNext" class="btn-primary mb-0_5">En
                         savoir
                         plus</Button>
-                    <router-link v-else class="btn-link-text" :to="{ name: 'Register' }">
-                        <Button class="btn-primary mb-0_5">
-                            S'inscrire
-                        </Button>
-                    </router-link>
-                    <router-link class="btn-link-text" :to="{ name: 'Home' }">
+                    <router-link class="btn-link-text" :to="{ name: 'Dashboard' }">
                         <Button class="btn-secondary">
                             Retour
                         </Button>

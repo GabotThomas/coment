@@ -4,9 +4,11 @@ import Example from "../components/Example.vue";
 import LoginContainer from "../components/container/LoginContainer.vue";
 import RegisterContainer from "../components/container/RegisterContainer.vue";
 import QuestionContainer from "../components/container/QuestionContainer";
+import QuizInitialContainer from "../components/container/QuizInitialContainer";
 import QuizContainer from "../components/container/QuizContainer";
 import QuizStartContainer from "../components/container/QuizStartContainer";
-import ResultsContainer from "../components/container/ResultsContainer";
+import ResultsQuizContainer from "../components/container/ResultsQuizContainer";
+import ResultsQuizInitialContainer from "../components/container/ResultsQuizInitialContainer";
 import DashboardContainer from "../components/container/DashboardContainer";
 import ProfileContainer from "../components/container/ProfileContainer";
 import store from "../store/index.js";
@@ -33,12 +35,22 @@ const routes = [
     {
         path: "/quiz/initial",
         name: "QuizInitial",
+        component: QuizInitialContainer,
+    },
+    {
+        path: "/quiz/:id",
+        name: "Quiz",
         component: QuizContainer,
+    },
+    {
+        path: "/results/initial/:id",
+        name: "ResultsInitial",
+        component: ResultsQuizInitialContainer,
     },
     {
         path: "/results/:id",
         name: "Results",
-        component: ResultsContainer,
+        component: ResultsQuizContainer,
     },
     {
         path: "/dashboard",
@@ -46,11 +58,10 @@ const routes = [
         component: DashboardContainer,
     },
     {
-        path: '/profile/:id',
+        path: "/profile/:id",
         name: "Profile",
         component: ProfileContainer,
-    }
-
+    },
     /*
     {
         path: "/category",

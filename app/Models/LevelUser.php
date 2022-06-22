@@ -13,7 +13,7 @@ class LevelUser extends Model
 {
     use HasFactory;
 
-    public function levels()
+    public function level()
     {
         return $this->belongsTo(Level::class, 'level_id');
     }
@@ -45,5 +45,31 @@ class LevelUser extends Model
         }
 
         return $levels;
+    }
+
+    public static function lastQuizOfLevel($id)
+    {
+        $idUser = Auth::id();
+
+        $subquery = function ($q) use ($id, $idUser) {
+            $q->select([DB::raw('COUNT(questions.id)')])
+                ->from('quizzes')
+                ->join("quiz_users", "quiz_users.quiz_id", "=", "quizzes.id")
+                ->join("questions", "questions.quiz_id", "=", "quizzes.id")
+                ->where('quizzes.level_id', '=', $id)
+                ->where('quiz_users.user_id', '=', $idUser)
+                ->where('quiz_users.status', '=', 'unfinish');
+        };
+
+        $lastQuiz = QuizUser::with(['quiz' => function ($q) {
+            $q->with('questions');
+        }])
+            ->addSelect(['totalQuestion' => $subquery])
+            ->whereRelation('quiz', 'level_id', '=', $id)
+            ->where('user_id', '=', $idUser)
+            ->where('status', '=', 'unfinish')
+            ->firstOrFail();
+
+        return $lastQuiz;
     }
 }

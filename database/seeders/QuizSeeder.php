@@ -36,7 +36,7 @@ class QuizSeeder extends Seeder
             'id'                    => 3,
             'level_id'              => 2,
             'name'                  => 'Second-one',
-            'is_initial'            => true,
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -53,7 +53,7 @@ class QuizSeeder extends Seeder
             'id'                    => 5,
             'level_id'              => 3,
             'name'                  => 'Third-one',
-            'is_initial'            => true,
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -70,7 +70,7 @@ class QuizSeeder extends Seeder
             'id'                    => 7,
             'level_id'              => 4,
             'name'                  => 'Fourth-one',
-            'is_initial'            => true,
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -87,7 +87,7 @@ class QuizSeeder extends Seeder
             'id'                    => 9,
             'level_id'              => 5,
             'name'                  => 'Fifth-one',
-            'is_initial'            => true,
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -109,7 +109,7 @@ class QuizSeeder extends Seeder
             'id'                    => 11,
             'level_id'              => 6,
             'name'                  => 'Six-one',
-            'is_initial'            => true,
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -126,7 +126,7 @@ class QuizSeeder extends Seeder
             'id'                    => 13,
             'level_id'              => 7,
             'name'                  => 'Seven-one',
-            'is_initial'            => true,
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -143,7 +143,7 @@ class QuizSeeder extends Seeder
             'id'                    => 15,
             'level_id'              => 8,
             'name'                  => 'Height-one',
-            'is_initial'            => true,
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -160,7 +160,7 @@ class QuizSeeder extends Seeder
             'id'                    => 17,
             'level_id'              => 9,
             'name'                  => 'Nine-one',
-            'is_initial'            => true,
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -177,7 +177,7 @@ class QuizSeeder extends Seeder
             'id'                    => 19,
             'level_id'              => 10,
             'name'                  => 'Ten-one',
-            'is_initial'            => true,
+            'is_initial'            => false,
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
