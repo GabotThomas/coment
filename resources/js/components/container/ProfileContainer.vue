@@ -4,11 +4,14 @@ import PopupButton from '../util/PopupButton.vue';
 
 const store = useStore();
 const user = store.getters.getUser;
-
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 const date = (date) => {
-    let dateCreated = new Date()
-    console.log(date)
+    const dateBefore = new Date(date);
+    const newDate = dateBefore.toLocaleDateString('fr-FR', options);
+    return newDate.split(' ').slice(-2).join(' ');
 }
+
+
 
 </script>
 
@@ -22,13 +25,14 @@ const date = (date) => {
             <div class="display">
                 <div>
                     <div class="profile-content_name">
-                        <h1 class="name">{{user.name}} {{user.lastname}}</h1>
-                        <p class="username">{{user.name}}{{user.lastname}}</p>
+                        <h1 class="name">{{ user.name }} {{ user.lastname }}</h1>
+                        <p class="username">{{ user.name }}{{ user.lastname }}</p>
                     </div>
                     <div class="profile-date">
                         <div class="date">
                             <img src="../../../img/icons/clock.svg" alt="" srcset="" class="date-clock">
-                            Membre depuis {{user.created_at + 'M YYYY'}}</div>
+                            Membre depuis {{ date(user.created_at) }}
+                        </div>
                     </div>
                 </div>
                 <div class="profile-img_position">
