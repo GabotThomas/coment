@@ -1,4 +1,14 @@
 <script setup>
+import { useStore } from 'vuex';
+import PopupButton from '../util/PopupButton.vue';
+
+const store = useStore();
+const user = store.getters.getUser;
+
+const date = (date) => {
+    let dateCreated = new Date()
+    console.log(date)
+}
 
 </script>
 
@@ -12,17 +22,17 @@
             <div class="display">
                 <div>
                     <div class="profile-content_name">
-                        <h1 class="name">Solène Meunier</h1>
-                        <p class="username">SolneMeuni</p>
+                        <h1 class="name">{{user.name}} {{user.lastname}}</h1>
+                        <p class="username">{{user.name}}{{user.lastname}}</p>
                     </div>
                     <div class="profile-date">
                         <div class="date">
                             <img src="../../../img/icons/clock.svg" alt="" srcset="" class="date-clock">
-                            Membre depuis janvier 2022</div>
+                            Membre depuis {{user.created_at + 'M YYYY'}}</div>
                     </div>
                 </div>
-                <div>
-                    <img src="" alt="" srcset="">
+                <div class="profile-img_position">
+                    <img src="../../../img/profile/profile-img.png" alt="" srcset="" class="profile-img">
                 </div>
             </div>
             <div class="profile-header_content"></div>
@@ -31,19 +41,19 @@
             <h1 class="stat-title">Statistiques</h1>
             <div class="grid">
                 <div class="grid-stat_box">
-                    <div>3</div>
+                    <div class="stat-number">3</div>
                     Activité
                 </div>
                 <div class="grid-stat_box">
-                    <div>3</div>
+                    <div class="stat-number">34</div>
                     Xp gagnés
                 </div>
                 <div class="grid-stat_box">
-                    <div>3</div>
+                    <div class="stat-number">10</div>
                     Diamants
                 </div>
                 <div class="grid-stat_box">
-                    <div>3</div>
+                    <div class="stat-number">2</div>
                     Niveaux
                 </div>
             </div>
@@ -95,5 +105,6 @@
                 </div>
             </div>
         </div>
+        <!-- <PopupButton></PopupButton> -->
     </div>
 </template>

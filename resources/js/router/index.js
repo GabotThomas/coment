@@ -11,6 +11,7 @@ import ResultsQuizContainer from "../components/container/ResultsQuizContainer";
 import ResultsQuizInitialContainer from "../components/container/ResultsQuizInitialContainer";
 import DashboardContainer from "../components/container/DashboardContainer";
 import ProfileContainer from "../components/container/ProfileContainer";
+import ReglageContainer from "../components/container/ReglageContainer";
 import store from "../store/index.js";
 
 const routes = [
@@ -62,6 +63,12 @@ const routes = [
         name: "Profile",
         component: ProfileContainer,
     },
+    {
+        path: '/reglage',
+        name: "Reglage",
+        component: ReglageContainer,
+    }
+
     /*
     {
         path: "/category",

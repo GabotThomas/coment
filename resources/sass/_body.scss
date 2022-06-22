@@ -499,6 +499,15 @@ button {
                 }
             }
 
+            .profile-img_position {
+                margin-left: 18px;
+                margin-top: 22px;
+
+                .profile-img {
+                    width: 77px;
+                }
+            }
+
             .profile-date {
                 .date {
                     display: flex;
@@ -534,7 +543,19 @@ button {
             .grid-stat_box {
                 border: solid 1.5px $gray-AFAFAF;
                 border-radius: 15px;
-                padding: 20px 15px;
+                padding: 11px 20px;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 22px;
+                color: $gray-AFAFAF;
+
+                .stat-number {
+                    font-family: $font-family-second !important;
+                    font-weight: 600 !important;
+                    font-size: 16px !important;
+                    line-height: 22px !important;
+                    color: $black !important;
+                }
             }
         }
     }
@@ -684,5 +705,112 @@ button {
 
         }
 
+    }
+
+}
+
+.popup-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* filter: blur(1px); */
+    /* overflow: hidden; */
+    /* display: flex; */
+    /* align-content: center; */
+    /* background-color: blue; */
+    z-index: 100;
+
+    .popup-button_display {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-end;
+    }
+}
+
+.ui.container.reglage {
+
+    .container-reglage_header {
+        justify-content: center;
+        display: flex;
+        margin-bottom: 11px;
+
+        .reglage-header_title {
+            font-family: $font-family-second;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    }
+    .reglage-content {
+        .reglage-header_content {
+            content: "";
+            border: 1px solid $disabled-gray;
+        }
+    }
+
+    .reglage-option_content {
+        padding: 0 30px;
+
+        .reglage-option_title {
+            margin: 30px 0 35px 0;
+            text-align: start;
+        }
+        .reglage-parametre {
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: 20px;
+                    margin-bottom: 20px;
+
+                    div {
+                        display: flex;
+                        align-items: center;
+
+                        .reglage-icon {
+                            width: 20px;
+                            margin-right: 11px;
+                        }
+
+                        p {
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 19px;
+                        }
+                    }
+
+
+                    .reglage-icon_chevron {
+                        height: 11px;
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .reglage-disconnecte {
+        position: fixed;
+        bottom: 100px;
+        left: 30px;
+
+        .button {
+            button {
+                background-color: $red;
+                border: none;
+                padding: 8px 20px;
+                border-radius: 30px;
+                color: $white;
+                font-weight: 800;
+                font-size: 14px;
+                line-height: 17px;
+            }
+        }
     }
 }

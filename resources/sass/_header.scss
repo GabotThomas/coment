@@ -1,0 +1,49 @@
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: $white;
+    display: flex;
+    justify-content: space-around;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 101;
+    width: 100%;
+
+    .nav-bar_content {
+        width: 100%;
+
+        .ui.nav-bar {
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                background-color: transparent;
+                border: none;
+
+                a {
+                    text-decoration: none;
+
+                    p {
+                        margin: 0;
+                        color: $dark-blue;
+                    }
+                }
+            }
+        }
+    }
+
+}
+.box-shadow {
+    position: fixed;
+    bottom: 13px;
+    left: -3px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 95;
+    width: 102%;
+    height: 62px;
+    box-shadow: 0px -1px 4px rgb(0 0 0 / 14%);
+}
