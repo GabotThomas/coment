@@ -22,6 +22,7 @@ const isActive = ref()
 
 const handleLogOut = () => {
   localStorage.setItem("token", null);
+  store.commit("setUser", null);
   store.commit("setToken", null);
   router.push({ name: "Login" });
 };

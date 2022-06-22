@@ -1,4 +1,16 @@
 <script setup>
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+
+const router = useRouter();
+const store = useStore();
+
+const handleLogOut = () => {
+  localStorage.setItem("token", null);
+  store.commit("setUser", null);
+  store.commit("setToken", null);
+  router.push({ name: "Login" });
+};
 
 </script>
 
@@ -49,7 +61,7 @@
         </div>
         <div class="reglage-disconnecte">
             <div class="button">
-                <button>Déconnexion</button>
+                <button v-on:click="handleLogOut">Déconnexion</button>
             </div>
         </div>
     </div>
