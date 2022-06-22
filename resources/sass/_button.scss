@@ -3,8 +3,9 @@ width: 100%;
 padding: 13px 0;
 border-radius: 15px;
 border: none;
-font-size: 0.75rem;
-font-weight: 900;
+font-size: 15px;
+font-weight: $bold;
+line-height: 22px;
 text-transform: uppercase;
 text-decoration: none;
 text-align: center;
@@ -17,7 +18,7 @@ cursor: pointer;
 
 .btn-primary {
     position: relative;
-    background-color: $yellow-primary;
+    background-color: $yellow;
 
     &::before {
         position: absolute;
@@ -27,16 +28,16 @@ cursor: pointer;
         width: 100%;
         z-index: -1;
         height: 100%;
-        background-color: $yellow-secondary;
+        background-color: $dark-yellow;
         border-radius: 15px;
     }
 
     &:disabled {
-        background-color: $disabled-gray;
-        color: $disabled-text;
+        background-color: $extra-light-gray;
+        color: $dark-gray;
 
         &::before {
-            background-color: transparent;
+            background-color: $gray;
         }
     }
 
@@ -46,13 +47,13 @@ cursor: pointer;
 }
 
 .btn-secondary {
-    border: 2px solid $yellow-primary;
-    color: $yellow-primary;
+    border: 2px solid $yellow;
+    color: $yellow;
     background-color: $white;
 }
 
 .btn-answer {
-    border: 2px solid $yellow-primary;
+    border: 2px solid $yellow;
     background-color: $white;
     text-align: left;
 }

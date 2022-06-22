@@ -46,11 +46,11 @@ const date = (date) => {
             <div class="grid">
                 <div class="grid-stat_box">
                     <div class="stat-number">3</div>
-                    Activité
+                    Jours d'activités
                 </div>
                 <div class="grid-stat_box">
                     <div class="stat-number">34</div>
-                    Xp gagnés
+                    XP gagnés
                 </div>
                 <div class="grid-stat_box">
                     <div class="stat-number">10</div>

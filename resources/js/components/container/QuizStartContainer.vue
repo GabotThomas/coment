@@ -43,10 +43,8 @@ onBeforeMount(() => {
                 <div class="card ui container home">
                     <img class="home-bg" src="../../../img/home/bg-home-smiley.png" alt="" srcset="">
                     <h1 class="home-title">Quiz-Ent</h1>
-                    <p class="home-texte_title"><b>Lorem Ipsum dolor sit amet, consectetur adipiscing elit.</b></p>
-                    <p class="home-texte">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis
-                        dolor vel arcu dapibus luctus. Etiam blandit sapien egestas turpis placerat, quis faucibus nibh
-                        lacinia. Donec consequat nec lacus eu facilisis.</p>
+                    <p class="home-texte_title"><b>10 questions d’auto-évaluation pour une communication non sexiste</b></p>
+                    <p class="home-texte">Ce quiz a vocation d’aider les professionnel.le.s de la communication, mais également tout.e citoyen.ne, à décrypter un message ou une image de communication pour en analyser le caractère sexiste. Sans plus attendre, adoptons les bons réflexes !</p>
                     <div class="button-start">
                         <router-link :to="{ name: 'QuizInitial' }" class="btn btn-primary mb-0_5">C'est parti !
                         </router-link>

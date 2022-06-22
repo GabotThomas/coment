@@ -7,7 +7,7 @@ import Loader from "../util/Loader.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { POST } from "../../constants/methods";
-import arrowLeft from "../../../img/icons/arrow.png";
+import arrowLeft from "../../../img/icons/arrow-left-black.svg";
 
 
 const router = useRouter();

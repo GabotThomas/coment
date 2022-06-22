@@ -2,7 +2,7 @@
     margin: 20px auto;
     width: 95px;
     height: 95px;
-    background: $progress-gray;
+    background: $light-gray;
     border-radius: 50%;
     position: relative;
 }
@@ -52,7 +52,7 @@
     background: $white;
     line-height: 82px;
     text-align: center;
-    color: $yellow-primary;
+    color: $yellow;
     position: absolute;
     z-index: 100;
     font-weight: 700;
@@ -79,7 +79,7 @@
 /* 3rd progress bar */
 .mask .fill {
     clip: rect(0px, 47.5px, 95px, 0px);
-    background-color: $yellow-primary;
+    background-color: $yellow;
 }
 
 .mask.full,

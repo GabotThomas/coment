@@ -33,9 +33,9 @@ const props = defineProps({
                     </div>
                     <div class="questions-button">
                         <button v-on:click="(e) => handleSelect(1)"
-                            :class="makeClassName('btn-answer btn-answer__yes', props.question.result == 1 && 'active')">Vrai</button>
+                            :class="makeClassName('btn-answer btn-answer__yes', props.question.result == 1 && 'active')">Oui</button>
                         <button v-on:click="(e) => handleSelect(0)"
-                            :class="makeClassName('btn-answer btn-answer__no mb-2', props.question.result == 0 && 'active')">Faux</button>
+                            :class="makeClassName('btn-answer btn-answer__no mb-2', props.question.result == 0 && 'active')">Non</button>
                         <div>
                             <button v-on:click="handleNext"
                                 :class="makeClassName('btn btn-primary', !next && 'display-none')"

@@ -29,12 +29,19 @@ button {
     font-family: $font-family-sans-serif;
 }
 
+p, a {
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+}
+
 .ui.container.home {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    height: 80vh;
+    height: 85vh;
     padding: 2rem;
 
     .home-bg {
@@ -44,15 +51,15 @@ button {
     }
 
     .home-title {
-        margin: 0 0 2rem 0;
+        margin: 0 0 30px 0;
     }
 
     .home-texte {
-        margin: 0 0 40px 0;
+        margin: 0 0 18px 0;
     }
 
     .home-texte_title {
-        margin-bottom: 0 0 7px 0;
+        margin: 0 0 7px 0 !important;
     }
 
     .button-start {
@@ -68,8 +75,18 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 90vh;
     padding: 2rem;
+
+    .login-title {
+        margin-bottom: 25px;
+    }
+
+    .ui.form {
+        .form-mail {
+            margin-bottom: 13px;
+        }
+    }
 
     .switch-login {
         display: flex;
@@ -92,6 +109,7 @@ button {
     .password-login,
     .password-register {
         position: relative;
+        margin-bottom: 28px;
 
         .ui.password {
             position: relative;
@@ -108,55 +126,56 @@ button {
             display: block;
             margin-top: 6px;
             margin-left: 6px;
-            color: $gray-AFAFAF;
+            color: $gray;
             text-decoration: none;
             font-size: 15px;
+            cursor: pointer;
         }
     }
 
     .login-text,
     .register-text {
         text-align: center;
-        color: $gray-AFAFAF;
+        color: $gray;
         font-size: 0.75rem;
+
+        p {
+            b {
+                cursor: pointer;
+            }
+        }
     }
     .text-register {
         text-align: center;
         font-size: 0.75rem;
 
+        p {
+            font-weight: $bold;
+        }
+
         a {
             text-decoration: none;
             text-transform: uppercase;
+            font-weight: $bold;
+            cursor: pointer;
         }
     }
 
-    .flower,
-    .confettis {
-        position: fixed;
-        z-index: -2;
-    }
+    .bg {
+        .bg-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
 
-    .flower-1 {
-        top: -36px;
-        left: -94px;
-        width: 230px;
-    }
-
-    .flower-2 {
-        top: -106px;
-        right: -106px;
-        width: 220px;
-    }
-
-    .flower-3 {
-        bottom: -77px;
-        right: 25px;
-        width: 190px;
-    }
-
-    .confettis-1 {
-        top: 0;
-        left: 0;
+        .bg-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 8px;
+            width: 100%;
+            margin-left: auto;
+        }
     }
 }
 
@@ -175,7 +194,7 @@ button {
         .progress-bar {
             content: "";
             width: 90%;
-            background-color: $progress-gray;
+            background-color: $light-gray;
             border-radius: 15px;
             position: relative;
         }
@@ -185,7 +204,7 @@ button {
             content: "";
             display: block;
             height: 100%;
-            background-color: $yellow-primary;
+            background-color: $yellow;
             border-radius: 15px;
         }
     }
@@ -217,7 +236,7 @@ button {
                         line-height: 22px;
 
                         span {
-                            color: $yellow-primary;
+                            color: $yellow;
                         }
                     }
 
@@ -247,7 +266,8 @@ button {
         text-align: center;
 
         .result-img {
-            width: 155px;
+            width: 190px;
+            height: auto;
         }
 
         .result-text {
@@ -257,6 +277,7 @@ button {
         .flex {
             display: flex;
             flex-direction: column;
+            padding: 0 30px;
 
             .result-number {
                 font-size: 96px;
@@ -393,14 +414,14 @@ button {
         width: 9px;
         height: 9px;
         background-color: $white;
-        border: 1px solid $yellow-primary;
+        border: 1px solid $yellow;
         border-radius: 50%;
         display: inline-block;
         margin: 10px;
     }
 
     .swiper-pagination-bullet-active {
-        background-color: $yellow-primary !important;
+        background-color: $yellow !important;
     }
 }
 
@@ -408,6 +429,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 115px;
 
     .level-state {
 
@@ -460,6 +482,7 @@ button {
 }
 
 .ui.container.profile {
+    margin: 30px 0 71px 0;
 
     .container-profile_header {
         justify-content: center;
@@ -493,7 +516,7 @@ button {
 
                 .username {
                     margin: 0 0 18px 0;
-                    color: $gray-AFAFAF;
+                    color: $gray;
                     font-weight: 700;
                     font-size: 15px;
                 }
@@ -512,7 +535,7 @@ button {
                 .date {
                     display: flex;
                     align-items: center;
-                    color: $gray-AFAFAF;
+                    color: $gray;
                     font-weight: 400;
                     font-size: 15px;
                     margin-bottom: 22px;
@@ -541,13 +564,13 @@ button {
             grid-row-gap: 15px;
 
             .grid-stat_box {
-                border: solid 1.5px $gray-AFAFAF;
+                border: solid 1.5px $gray;
                 border-radius: 15px;
                 padding: 11px 20px;
                 font-weight: 400;
                 font-size: 15px;
                 line-height: 22px;
-                color: $gray-AFAFAF;
+                color: $gray;
 
                 .stat-number {
                     font-family: $font-family-second !important;
@@ -616,7 +639,7 @@ button {
                     padding: 5px;
                     height: 65px;
                     position: relative;
-                    background-color: $yellow-primary;
+                    background-color: $yellow;
                     border-radius: 15px;
 
                     &::before {
@@ -628,7 +651,7 @@ button {
                         width: 100%;
                         z-index: -1;
                         height: 100%;
-                        background-color: $yellow-secondary;
+                        background-color: $dark-yellow;
                         border-radius: 15px;
                     }
                     .success-img {
@@ -655,7 +678,7 @@ button {
                         content: "";
                         width: 100%;
                         height: 12px;
-                        background-color: $progress-gray;
+                        background-color: $light-gray;
                         border-radius: 15px;
                         position: relative;
                         margin: 10px 0;
@@ -666,7 +689,7 @@ button {
                         content: "";
                         display: block;
                         height: 100%;
-                        background-color: $yellow-primary;
+                        background-color: $yellow;
                         border-radius: 15px;
                     }
 
@@ -684,7 +707,7 @@ button {
                         font-weight: 400;
                         font-size: 15px;
                         line-height: 22px;
-                        color: $disabled-text;
+                        color: $dark-gray;
                     }
                 }
 

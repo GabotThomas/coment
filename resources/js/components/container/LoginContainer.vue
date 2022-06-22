@@ -49,15 +49,15 @@ watch(resultLogin, (currentValue, oldValue) => {
   <div class="
       ui container login
     ">
-    <h1 class="mb-1_25">Se connecter</h1>
+    <h1 class="login-title">Se connecter</h1>
     <form class="ui form">
-      <div class="mb-0_5">
-        <span class="ui label">Adresse e-mail</span>
+      <div class="form-mail">
+        <p class="ui label">Adresse e-mail</p>
         <input class="ui input" id="username" name="email" type="text" placeholder="Entrez votre adresse e-mail"
           @input="handleChange" :value="user.value.email || ''" />
       </div>
-      <div class="password-login mb-1_5">
-        <span class="ui label">Mot de passe</span>
+      <div class="password-login">
+        <p class="ui label">Mot de passe</p>
         <InputPassword :handle-change="password" :value="user.value.password || ''" placeholder="Entrez votre mot de passe" name="password"></InputPassword>
         <a href="" class="forgot-password">Mot de passe oublié ?</a>
       </div>
@@ -71,26 +71,20 @@ watch(resultLogin, (currentValue, oldValue) => {
         </button>
       </div>
       <span class="switch-login mb-1_5">ou</span>
-      <!-- <div class="">
-            <input class="ui input" id="password" type="password" name="password" placeholder="******************"
-            @input="handleChange" :value="user.value.password || ''" />
-            <p class="">Please choose a password.</p>
-        </div> -->
       <div class="login-text mb-1">
-        <span>En te connectant à [Nom de l’appli], tu acceptes nos <b>Conditions d’utilisation</b> et notre <b>Politique
-            de confidentialité.</b></span>
+        <p>En te connectant à [Nom de l’appli], tu acceptes nos <b>Conditions d’utilisation</b> et notre <b>Politique
+            de confidentialité.</b></p>
       </div>
       <input type="hidden" name="_token" :value="csrf">
 
       <div class="fw-900 text-register">
-        <span>Tu n’as pas encore de compte ? <router-link class="yellow" :to="{ name: 'Register' }">&nbsp; Fais le test
-          </router-link></span>
+        <p>Tu n’as pas encore de compte ? <router-link class="yellow" :to="{ name: 'Register' }">&nbsp; Fais le test
+          </router-link></p>
       </div>
     </form>
     <div class="bg">
-      <img src="../../../img/flowers/flower_1.svg" alt="" srcset="" class="flower flower-1">
-      <img src="../../../img/flowers/flower_2.svg" alt="" srcset="" class="flower flower-2">
-      <img src="../../../img/flowers/flower_2.svg" alt="" srcset="" class="flower flower-3">
+        <img src="../../../img/home/bg-home_2.png" alt="" srcset="" class="bg-top">
+        <img src="../../../img/home/bg-smiley.png" alt="" srcset="" class="bg-bottom">
     </div>
   </div>
 </template>
