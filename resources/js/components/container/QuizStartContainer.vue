@@ -3,10 +3,9 @@ import { watch, ref, onBeforeMount } from "vue";
 import { RouterLink, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useFetch from "../../hooks/useFetch";
-
 import confet from "../../../img/confettis/confettis.png";
 import Wave from "../../../img/home/wave.png";
-import Emojis from "../svg/emojis.vue";
+import Emojis from '../svg/Emojis'
 
 const props = defineProps({
     question: Object

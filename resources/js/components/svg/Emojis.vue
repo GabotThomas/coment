@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
     <svg width="375" height="195" viewBox="0 0 375 195" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd"
