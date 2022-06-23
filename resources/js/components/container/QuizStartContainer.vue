@@ -3,9 +3,9 @@ import { watch, ref, onBeforeMount } from "vue";
 import { RouterLink, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useFetch from "../../hooks/useFetch";
-import confet from "../../../img/confettis/confettis.png"
-import Wave from "../../../img/home/wave.png"
-import Emojis from "../svg/emojis.vue"
+import confet from "../../../img/confettis/confettis.png";
+import Wave from "../../../img/home/wave.png";
+import Emojis from "../svg/emojis.vue";
 
 const props = defineProps({
     question: Object
@@ -41,12 +41,14 @@ onBeforeMount(() => {
 
 <template>
     <div class="container home-bg">
+        <!--
         <div class="back-confet">
             <div class="background-color"></div>
             <div class="background-confet" :style="{ backgroundImage: `url(${confet})` }"></div>
             <img class="wave" :src="Wave" />
             <Emojis class="children" />
         </div>
+        -->
         <div class="card ui container home">
             <h1 class="home-title">Quiz-Ent</h1>
             <p class="home-texte_title"><b>10 questions d’auto-évaluation pour une communication non sexiste</b>
