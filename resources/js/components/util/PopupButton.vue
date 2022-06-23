@@ -32,8 +32,18 @@ const handleMess = (e) => {
     <div :class="makeClassName('popup-container', open && 'open')" v-on:click="handleClose">
         <div class="popup-button">
             <div class="popup-button_display">
-                <button v-on:click="handleMess">Messagerie</button>
-                <button v-on:click="handleMess">IA</button>
+                <div class="button-ia">
+                    <p class="ia-text">Test ta com</p>
+                    <button v-on:click="handleMess" class="ia-img">
+                        <img src="../../../img/icons/ia-button.svg" alt="">
+                    </button>
+                </div>
+                <div class="button-message">
+                    <p class="message-text">Besoin de parler</p>
+                    <button v-on:click="handleMess">
+                        <img src="../../../img/icons/help-button.svg" alt="">
+                    </button>
+                </div>
             </div>
         </div>
     </div>

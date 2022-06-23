@@ -69,14 +69,33 @@ p, a {
     }
 }
 
+.main-login {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .bg-top {
+        width: 100%;
+    }
+
+    .bg-bottom {
+        width: 100%;
+    }
+}
+
+.ui.container.register {
+    height: 100vh;
+}
+
 .ui.container.login,
 .ui.container.register  {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh;
-    padding: 2rem;
+    // height: 90vh;
+    padding: 0 2rem 0;
 
     .login-title {
         margin-bottom: 25px;
@@ -160,23 +179,6 @@ p, a {
             cursor: pointer;
         }
     }
-
-    .bg {
-        .bg-top {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-        }
-
-        .bg-bottom {
-            position: fixed;
-            bottom: 0;
-            left: 8px;
-            width: 100%;
-            margin-left: auto;
-        }
-    }
 }
 
 .ui.container.quiz {
@@ -258,7 +260,7 @@ p, a {
 }
 
 .ui.container.result {
-    height: 90vh;
+    // height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;

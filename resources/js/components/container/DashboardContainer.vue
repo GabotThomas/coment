@@ -7,6 +7,7 @@ import DiamondWhite from '../../../img/level/diamond-white.png'
 import DiamondDisabled from '../../../img/level/diamond-disabled.png'
 import { makeClassName } from "../../functions/index";
 import Link from "../util/Link.vue";
+import PopupButton from "../util/PopupButton.vue";
 
 const [result, load, loading] = useFetch();
 const levelStates = ref([]);
@@ -81,4 +82,5 @@ const imageLevel = (level) => {
             </div>
         </div>
     </div>
+    <PopupButton />
 </template>

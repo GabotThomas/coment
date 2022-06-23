@@ -28,7 +28,7 @@ const handleLogOut = () => {
 
 const isHeader = computed(() => {
   const currentRoute = router.currentRoute.value.name;
-  return RegExp(/Quiz|Error|Login/).test(currentRoute);
+  return RegExp(/Quiz|Error|Login|Results/).test(currentRoute);
 })
 
 </script>
