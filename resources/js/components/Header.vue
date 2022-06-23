@@ -21,7 +21,6 @@ const isHeader = computed(() => {
   const currentRoute = router.currentRoute.value.name;
   return RegExp(/Quiz|Error|Login/).test(currentRoute);
 })
-
 </script>
 
 <template>

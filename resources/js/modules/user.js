@@ -1,5 +1,5 @@
 const user = {
-    state: { token: JSON.parse(localStorage.getItem("token")), user: {} },
+    state: { token: JSON.parse(localStorage.getItem("token")), user: null },
     mutations: {
         setToken(state, value) {
             state.token = value;
