@@ -25,14 +25,12 @@ const routes = [
         path: "/login",
         name: "Login",
         component: LoginContainer,
-        beforeEnter: [justVisitor],
     },
 
     {
         path: "/register",
         name: "Register",
         component: RegisterContainer,
-        beforeEnter: [justVisitor],
     },
     {
         path: "/quiz/initial",
@@ -84,8 +82,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     if (
         to.matched.some(
-            (record) =>
-                record.meta.requiresLogin && store.state.user.token == "unknown"
+            (record) => record.meta.requiresLogin && !store.state.user.token
         )
     ) {
         next("/login");
