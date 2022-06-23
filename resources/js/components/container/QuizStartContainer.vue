@@ -41,14 +41,12 @@ onBeforeMount(() => {
 
 <template>
     <div class="container home-bg">
-        <!--
         <div class="back-confet">
             <div class="background-color"></div>
             <div class="background-confet" :style="{ backgroundImage: `url(${confet})` }"></div>
             <img class="wave" :src="Wave" />
             <Emojis class="children" />
         </div>
-        -->
         <div class="card ui container home">
             <h1 class="home-title">Quiz-Ent</h1>
             <p class="home-texte_title"><b>10 questions d’auto-évaluation pour une communication non sexiste</b>
