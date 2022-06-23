@@ -193,7 +193,7 @@ p, a {
 
         .progress-bar {
             content: "";
-            width: 90%;
+            width: 80%;
             background-color: $light-gray;
             border-radius: 15px;
             position: relative;
@@ -206,6 +206,13 @@ p, a {
             height: 100%;
             background-color: $yellow;
             border-radius: 15px;
+        }
+
+        .progress-number {
+            margin: 0;
+            display: flex;
+            line-height: 0;
+            align-items: center;
         }
     }
 
@@ -498,7 +505,7 @@ p, a {
     .profile-content {
         .profile-header_content {
             content: "";
-            border: 1px solid $disabled-gray;
+            border: 1px solid $light-gray;
         }
 
         .display {
@@ -592,7 +599,7 @@ p, a {
         }
 
         .success-content {
-            // border: solid 1.5px $disabled-gray;
+            // border: solid 1.5px $light-gray;
             // border-radius: 15px;
             // padding: 25px 0;
 
@@ -631,7 +638,7 @@ p, a {
             .display {
                 display: flex;
                 align-items: center;
-                border: solid 1.5px $disabled-gray;
+                border: solid 1.5px $light-gray;
 
                 .success-img_bg {
                     align-items: center;
@@ -770,7 +777,7 @@ p, a {
     .reglage-content {
         .reglage-header_content {
             content: "";
-            border: 1px solid $disabled-gray;
+            border: 1px solid $light-gray;
         }
     }
 
@@ -834,6 +841,32 @@ p, a {
                 font-weight: 800;
                 font-size: 14px;
                 line-height: 17px;
+            }
+        }
+    }
+}
+
+.ui.container.error {
+    img {
+        width: 100%;
+    }
+
+    .error-content {
+        padding: 0 30px;
+        .error-content_title {
+            font-weight: 700;
+            font-size: 59px;
+            font-family: $font-family-second;
+        }
+
+        .error-content_texte {
+            margin: 0 0 50px 0;
+
+            span {
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 22px;
+                font-family: $font-family-second;
             }
         }
     }

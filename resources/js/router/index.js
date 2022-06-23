@@ -12,6 +12,7 @@ import ResultsQuizInitialContainer from "../components/container/ResultsQuizInit
 import DashboardContainer from "../components/container/DashboardContainer";
 import ProfileContainer from "../components/container/ProfileContainer";
 import ReglageContainer from "../components/container/ReglageContainer";
+import ErrorContainer from "../components/container/ErrorContainer";
 import store from "../store/index.js";
 
 const routes = [
@@ -67,7 +68,13 @@ const routes = [
         path: '/reglage',
         name: "Reglage",
         component: ReglageContainer,
-    }
+    },
+    {
+        path: '*',
+        name: "Error",
+        component: ErrorContainer,
+    },
+    { path: '/:pathMatch(.*)*', component: PathNotFound },
 
     /*
     {

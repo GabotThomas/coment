@@ -44,6 +44,10 @@ const handlePrev = () => {
     index.value--;
 }
 
+const handleReturn = () => {
+    router.push({ name: "Home" });
+}
+
 const handleSelect = (result) => {
     const question = quiz.value.questions[index.value];
     quiz.value.questions[index.value] = { ...question, result }
@@ -79,6 +83,10 @@ const prev = computed(() => index.value >= quiz.value.totalQuestion - 1)
 
 const progress = computed(() => (index.value + 1) / quiz.value.totalQuestion * 100)
 
+const avancement = computed(() => {
+    return `${index.value + 1}/${quiz.value.totalQuestion}`
+})
+
 const allChecked = computed(() => {
     return quiz.value.questions.every(question => question.result != undefined);
 })
@@ -91,11 +99,12 @@ const allChecked = computed(() => {
             <div class="col-md-8">
                 <Loader v-if="loadingQuiz" />
                 <div v-else class="card ui container quiz justify-start">
-                    <div v-on:click="handlePrev" class="arrow-left mb-2">
-                        <img :src="arrowLeft" alt="" srcset="" />
+                    <div class="arrow-left mb-2">
+                        <img :src="arrowLeft" alt="" srcset="" v-on:click="handleReturn"/>
                         <div class="progress-bar">
                             <div class="progress-bar__before" v-bind:style="{ width: progress + '%' }"></div>
                         </div>
+                        <p class="progress-number">{{ avancement }}</p>
                     </div>
                     <QuestionContainer :question="question" :handle-select="handleSelect" :handle-next="handleNext"
                         :next="next" />
