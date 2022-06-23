@@ -36,7 +36,7 @@ class LevelSeeder extends Seeder
             'id'                    => 3,
             'level_state_id'        => 1,
             'name'                  => 'Third',
-            'image'                  => '/storage/image/level/flower-disable',
+            'image'                  => '/storage/image/level/flower',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -45,7 +45,7 @@ class LevelSeeder extends Seeder
             'id'                    => 4,
             'level_state_id'        => 1,
             'name'                  => 'Fourth',
-            'image'                  => '/storage/image/level/star-disable',
+            'image'                  => '/storage/image/level/star',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -54,7 +54,7 @@ class LevelSeeder extends Seeder
             'id'                    => 5,
             'level_state_id'        => 1,
             'name'                  => 'Fifth',
-            'image'                  => '/storage/image/level/etoile-disable',
+            'image'                  => '/storage/image/level/etoile',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -89,7 +89,7 @@ class LevelSeeder extends Seeder
             'id'                    => 8,
             'level_state_id'        => 2,
             'name'                  => 'Heigth',
-            'image'                  => '/storage/image/level/flower-disable',
+            'image'                  => '/storage/image/level/flower',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -98,7 +98,7 @@ class LevelSeeder extends Seeder
             'id'                    => 9,
             'level_state_id'        => 2,
             'name'                  => 'Nine',
-            'image'                  => '/storage/image/level/star-disable',
+            'image'                  => '/storage/image/level/star',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -107,7 +107,7 @@ class LevelSeeder extends Seeder
             'id'                    => 10,
             'level_state_id'        => 2,
             'name'                  => 'Ten',
-            'image'                  => '/storage/image/level/etoile-disable',
+            'image'                  => '/storage/image/level/etoile',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);

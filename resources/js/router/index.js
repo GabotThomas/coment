@@ -43,6 +43,7 @@ const routes = [
         path: "/quiz/:id",
         name: "Quiz",
         component: QuizContainer,
+        meta: { requiresLogin: true },
     },
     {
         path: "/results/initial/:id",
@@ -53,35 +54,27 @@ const routes = [
         path: "/results/:id",
         name: "Results",
         component: ResultsQuizContainer,
+        meta: { requiresLogin: true },
     },
     {
         path: "/dashboard",
         name: "Dashboard",
         component: DashboardContainer,
+        meta: { requiresLogin: true },
     },
     {
         path: "/profile/:id",
         name: "Profile",
         component: ProfileContainer,
+        meta: { requiresLogin: true },
     },
     {
-        path: '/reglage',
+        path: "/reglage",
         name: "Reglage",
         component: ReglageContainer,
-    },
-    {
-        path: '/404',
-        name: "Error",
-        component: ErrorContainer,
-    },
-
-    /*
-    {
-        path: "/category",
-        name: "Category",
-        component: OfficeCategoryListContainer,
         meta: { requiresLogin: true },
-    },*/
+    },
+    { path: "/:pathMatch(.*)*", name: "Error", component: ErrorContainer },
 ];
 const router = createRouter({
     history: createWebHistory(),
@@ -91,7 +84,8 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     if (
         to.matched.some(
-            (record) => record.meta.requiresLogin && !store.state.user.token
+            (record) =>
+                record.meta.requiresLogin && store.state.user.token == "unknown"
         )
     ) {
         next("/login");

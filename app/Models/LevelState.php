@@ -29,8 +29,10 @@ class LevelState extends Model
             }])
             ->get();
 
+        $isDisabled = false;    
+
         foreach ($levelStates as $levelState) {
-            foreach ($levelState->levels as $level) {
+            foreach ($levelState->levels as $index => $level) {
 
                 $numberOfQuizz = 0;
                 $numberOfQuizzFinished = 0;
@@ -44,6 +46,17 @@ class LevelState extends Model
 
                 $resultPourcentage = round($numberOfQuizzFinished / $numberOfQuizz, 2) * 100;
                 $level->pourcentage = $resultPourcentage;
+
+                if($index != 0){
+                    if($levelState->levels[$index - 1]->pourcentage != 100){
+                        $isDisabled = true;
+                    }
+                }
+
+                if($isDisabled){
+                    $level->disabled = true;
+                }
+
             }
         }
         return $levelStates;

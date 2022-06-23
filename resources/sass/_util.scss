@@ -88,3 +88,7 @@
     transform: rotate(150deg);
     */
 }
+
+.level.disabled .circle-wrap .inside-circle .deep-circle{
+    background-color: $light-gray;
+}
