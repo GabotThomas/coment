@@ -70,11 +70,10 @@ const routes = [
         component: ReglageContainer,
     },
     {
-        path: '*',
+        path: '/404',
         name: "Error",
         component: ErrorContainer,
     },
-    { path: '/:pathMatch(.*)*', component: PathNotFound },
 
     /*
     {
