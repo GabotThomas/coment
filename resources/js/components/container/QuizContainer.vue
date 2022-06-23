@@ -74,6 +74,10 @@ const prev = computed(() => index.value >= quiz.value.totalQuestion - 1)
 
 const progress = computed(() => (index.value + 1) / quiz.value.totalQuestion * 100)
 
+const avancement = computed(() => {
+    return `${index.value + 1}/${quiz.value.totalQuestion}`
+})
+
 const allChecked = computed(() => {
     return quiz.value.questions.every(question => question.result != undefined);
 })
@@ -91,6 +95,7 @@ const allChecked = computed(() => {
                         <div class="progress-bar">
                             <div class="progress-bar__before" v-bind:style="{ width: progress + '%' }"></div>
                         </div>
+                        <p>{{ avancement }}</p>
                     </div>
                     <QuestionContainer :question="question" :handle-select="handleSelect" :handle-next="handleNext"
                         :next="next" />
