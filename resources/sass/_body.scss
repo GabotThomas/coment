@@ -731,19 +731,37 @@ p, a {
     }
 
 }
+.popup-container{
+    display: none;
+
+    &.open{
+        display:block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+    }
+}
+.popup-open{
+    position: fixed;
+    z-index :2;
+    bottom: 100px;
+    right: 20px;
+}
 
 .popup-button {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    
+
+
     /* filter: blur(1px); */
     /* overflow: hidden; */
     /* display: flex; */
     /* align-content: center; */
     /* background-color: blue; */
     z-index: 100;
+
 
     .popup-button_display {
         display: flex;
