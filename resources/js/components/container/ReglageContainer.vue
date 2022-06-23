@@ -1,15 +1,16 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+import PopupButton from '../util/PopupButton.vue';
 
 const router = useRouter();
 const store = useStore();
 
 const handleLogOut = () => {
-  localStorage.setItem("token", null);
-  store.commit("setUser", null);
-  store.commit("setToken", null);
-  router.push({ name: "Login" });
+    localStorage.setItem("token", null);
+    store.commit("setUser", null);
+    store.commit("setToken", null);
+    router.push({ name: "Login" });
 };
 
 </script>
@@ -65,4 +66,5 @@ const handleLogOut = () => {
             </div>
         </div>
     </div>
+    <PopupButton />
 </template>
