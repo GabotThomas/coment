@@ -14,18 +14,18 @@ class Result extends Model
         return $this->hasMany(ResultPage::class);
     }
 
-    public static function findResult()
+    public static function findResult($id)
     {
-        $subquery = function ($q) {
+        $subquery = function ($q) use($id) {
             $q->select([DB::raw('COUNT(result_pages.id)')])
                 ->from('results')
                 ->join("result_pages", "result_pages.result_id", "=", "results.id")
-                ->where('results.id', '=', 1);
+                ->where('results.id', '=', $id);
         };
 
         $query = Result::with('resultPages')
             ->addSelect(['totalPages' => $subquery])
-            ->where('id', '=', 1)
+            ->where('id', '=', $id)
             ->firstOrFail();
 
         return $query;
