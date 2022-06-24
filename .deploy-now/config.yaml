@@ -33,7 +33,6 @@ deploy:
       - DOCKER_ENV
       - docker_tag
       - output.log
-      - storage
     # commands that are executed at the real webspace NOT at build servers BEFORE copying new files
     pre-deployment-remote-commands:
       - php artisan down
