@@ -48,7 +48,6 @@ watch(resultLogin, (currentValue, oldValue) => {
 </script>
 <template>
   <div class="main-login">
-    <!-- <img src="../../../img/home/bg-home_2.png" alt="" srcset="" class="bg-top">-->
     <BackgroundConfet />
     <div class="
             ui container login
