@@ -10,16 +10,34 @@ class Quiz extends Model
 {
     use HasFactory;
 
+    protected $fillables = [];
+
     public function questions()
     {
         return $this->hasMany(Question::class);
     }
 
-    public function quizUser()
+public function quizUser()
+{
+    return $this->hasOne(QuizUser::class);
+}
+
+public static function getAll()
     {
-        return $this->hasOne(QuizUser::class);
+        return Quiz::with("id")->get();
     }
 
+    public static function getOne(int $id)
+    {
+        return Quiz::where('id', '=', $id)
+            ->firstOrFail();
+    }
+
+    public static function getByIds(array $ids)
+    {
+        return Quiz::whereIn("id", $ids)->get();
+    }
+    
     public static function findQuiz($id)
     {
         return Quiz::with('questions')->where('id', '=', $id)

@@ -47,7 +47,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function login(Request $request)
+    public function login(Request $request, $isAdmin = false)
     {
 
         if (!Auth::attempt($request->only('email', 'password'))) {
@@ -56,7 +56,13 @@ class AuthController extends Controller
             ], 401);
         }
 
-        $user = User::where('email', $request['email'])->firstOrFail();
+        $query = User::where('email', $request['email']);
+
+        if ($isAdmin === true) {
+            $query = $query->where('role', '=', 'admin');
+        }
+
+        $user = $query->firstOrFail();
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
@@ -65,6 +71,11 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
             'user' => $user
         ]);
+    }
+
+    public function loginAdmin(Request $request)
+    {
+        return $this->login($request, true);
     }
 
     public function user()

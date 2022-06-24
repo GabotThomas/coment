@@ -17,6 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->id();
             $table->bigInteger('quiz_id');
             $table->text('text');
+            $table->text('answer');
             $table->string('image')->nullable();
             $table->boolean('is_sexist');
             $table->timestamps();

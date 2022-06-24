@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminQuizController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LevelStateController;
 use App\Http\Controllers\LevelUserController;
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/admin/login', [AuthController::class, 'loginAdmin']);
 
 Route::get('/quiz/initial', [QuizzesController::class, 'initialQuiz']);
 Route::get('/quiz/{id}', [QuizzesController::class, 'show']);
