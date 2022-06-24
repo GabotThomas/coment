@@ -17,8 +17,8 @@ const [resultRegister, loadRegister, loadingRegister] = useFetch();
 const { getStoredItem, setItemToStorage } = useLocalStorage();
 const [user, dispatchState] = useReducer(formReducer, {
   email: "test@yahoo.fr",
-  name: "Poliak",
-  lastname: 'Ov',
+  name: "Test",
+  lastname: 'Unique',
   password: 'Thomas77220;',
   confirm_password: 'Thomas77220;'
 });
@@ -65,8 +65,8 @@ watch(resultRegister, (currentValue, oldValue) => {
             :value="user.value.name || ''" />
 
           <span class="ui label">Nom</span>
-          <input type="text" class="mb-1 ui input" name="lastname" placeholder="Entrez votre nom"
-            @input="handleChange" :value="user.value.lastname || ''" />
+          <input type="text" class="mb-1 ui input" name="lastname" placeholder="Entrez votre nom" @input="handleChange"
+            :value="user.value.lastname || ''" />
 
           <span class="ui label">Adresse e-mail</span>
           <input type="text" class="ui input mb-1" name="email" placeholder="Entrez votre adresse e-mail"
@@ -89,13 +89,15 @@ watch(resultRegister, (currentValue, oldValue) => {
           <span class="switch-login mb-1_5">ou</span>
           <div class="register-text mb-1">
             <p>En te connectant à [Nom de l’appli], tu acceptes nos <b>Conditions d’utilisation</b> et notre
-              <b>Politique de confidentialité.</b></p>
+              <b>Politique de confidentialité.</b>
+            </p>
           </div>
           <input type="hidden" name="_token" :value="csrf">
 
           <div class="fw-900 text-register">
             <p>Tu as déjà un compte ? <router-link class="yellow" :to="{ name: 'Login' }">&nbsp; SE CONNECTER
-              </router-link></p>
+              </router-link>
+            </p>
           </div>
         </form>
         <div class="bg">

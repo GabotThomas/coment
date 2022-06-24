@@ -24,7 +24,7 @@ class QuestionSeeder extends Seeder
             'answer'                => '<p><span style="color: #FED320">Exemples : </span><span>les femmes s’occupent systématiquement des enfants
             tandis que les hommes sont au travail; les femmes sont décrites
             comme dépensières ou inconstantes.<br></span><span style="color: #FED320">Indicateur de rôle social</span></p>',
-            'image'                 => '/storage/image/question/messengerflo.json',
+            'image'                 => '/storage/image/question/messengerflow.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -68,7 +68,7 @@ class QuestionSeeder extends Seeder
             'answer'                => '<p><span style="color: #FED320">Exemples : </span><span>une marque de petits pots pour enfants qui
             ne s’adresse qu’aux mères ; une publicité qui se moque
             des pères en insistant sur leur incompétence.<br></span><span style="color: #FED320">Indicateur de parentalité</span></p>',
-            'image'                 => '/storage/image/question/messengerflo.json',
+            'image'                 => '/storage/image/question/messengerflow.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -110,7 +110,7 @@ class QuestionSeeder extends Seeder
             etc',
             'answer'                => '<p><span style="color: #FED320">Exemples : </span><span>« Mademoiselle » ; « Madame le Directeur » ;
             un produit fait pour « la » femme.<br></span><span style="color: #FED320">Indicateur sémantique</span></p>',
-            'image'                 => '/storage/image/question/messengerflo.json',
+            'image'                 => '/storage/image/question/messengerflow.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -192,7 +192,7 @@ class QuestionSeeder extends Seeder
             'quiz_id'               => '3',
             'text'                  => 'Lorem ipsum dolor sit amet ?',
             'answer'                => '<p><span>Sont concernés les textes écrits, signatures, dialogues, voix off, chansons, etc.<br><br></span><span style="color: #FED320">Exemples</span><span> : « Mademoiselle » ; « Madame le Directeur » ; un produit fait pour « la » femme.<br>Indicateur </span><span style="color: #FED320">sémantique</span></p>',
-            'image'                 => '/storage/image/question/messengerflo.json',
+            'image'                 => '/storage/image/question/messengerflow.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
