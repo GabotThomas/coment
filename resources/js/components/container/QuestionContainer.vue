@@ -12,7 +12,6 @@ const props = defineProps({
     handleNext: Function,
     next: Boolean
 });
-
 </script>
 
 <template>
