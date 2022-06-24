@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Quiz;
 use App\Models\Result;
+use App\Service\ResultService;
 
 class QuizzesController extends Controller
 {
@@ -39,7 +40,8 @@ class QuizzesController extends Controller
 
         $resultPourcentage = round($answerGood / $numberOfQuestion, 2) * 100;
 
-        $result = Result::find(1);
+        $resulId = ResultService::getResult($resultPourcentage);
+        $result = Result::find($resulId);
 
         return response()->json([
             'pourcentage' => $resultPourcentage,
