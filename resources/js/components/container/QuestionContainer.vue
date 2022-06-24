@@ -24,12 +24,7 @@ const props = defineProps({
                     <div>
                         <h1 class="mb-0">{{ props.question.text }}</h1>
                         <LottieJson :json="props.question.image" />
-                        <p class="question-text mb-2">Sont concernés les textes écrits, signatures, dialogues, voix off,
-                            chansons, etc. <br><br>
-                            <span>Exemples :</span> « Mademoiselle » ; « Madame le Directeur » ; un produit fait pour «
-                            la » femme.
-                            <span>Indicateur sémantique</span>
-                        </p>
+                        <div v-html="props.question.answer"></div>
                     </div>
                     <div class="questions-button">
                         <div v-on:click="(e) => handleSelect(1)"
