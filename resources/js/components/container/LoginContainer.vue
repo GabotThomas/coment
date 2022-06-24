@@ -9,6 +9,7 @@ import useActions from "../../hooks/useActions";
 import { POST } from "../../constants/methods";
 import PasswordField from "../container/PasswordField.vue";
 import InputPassword from "../form/module/InputPassword.vue";
+import BackgroundConfet from "../util/BackgroundConfet.vue";
 
 const store = useStore();
 const router = useRouter();
@@ -46,47 +47,50 @@ watch(resultLogin, (currentValue, oldValue) => {
 });
 </script>
 <template>
-    <div class="main-login">
-        <img src="../../../img/home/bg-home_2.png" alt="" srcset="" class="bg-top">
-        <div class="
+  <div class="main-login">
+    <!-- <img src="../../../img/home/bg-home_2.png" alt="" srcset="" class="bg-top">-->
+    <BackgroundConfet />
+    <div class="
             ui container login
             ">
-            <h1 class="login-title">Se connecter</h1>
-            <form class="ui form">
-            <div class="form-mail">
-                <p class="ui label">Adresse e-mail</p>
-                <input class="ui input" id="username" name="email" type="text" placeholder="Entrez votre adresse e-mail"
-                @input="handleChange" :value="user.value.email || ''" />
-            </div>
-            <div class="password-login">
-                <p class="ui label">Mot de passe</p>
-                <InputPassword :handle-change="password" :value="user.value.password || ''" placeholder="Entrez votre mot de passe" name="password"></InputPassword>
-                <a href="" class="forgot-password">Mot de passe oublié ?</a>
-            </div>
-            <div class="">
-                <button class="
+      <h1 class="login-title">Se connecter</h1>
+      <form class="ui form">
+        <div class="form-mail">
+          <p class="ui label">Adresse e-mail</p>
+          <input class="ui input" id="username" name="email" type="text" placeholder="Entrez votre adresse e-mail"
+            @input="handleChange" :value="user.value.email || ''" />
+        </div>
+        <div class="password-login">
+          <p class="ui label">Mot de passe</p>
+          <InputPassword :handle-change="password" :value="user.value.password || ''"
+            placeholder="Entrez votre mot de passe" name="password"></InputPassword>
+          <a href="" class="forgot-password">Mot de passe oublié ?</a>
+        </div>
+        <div class="">
+          <button class="
                     btn
                     btn-primary
                     mb-1_5
                     " type="button" v-on:click.prevent="handleSubmit">
-                Se connecter
-                </button>
-            </div>
-            <span class="switch-login mb-1_5">ou</span>
-            <div class="login-text mb-1">
-                <p>En te connectant à [Nom de l’appli], tu acceptes nos <b>Conditions d’utilisation</b> et notre <b>Politique
-                    de confidentialité.</b></p>
-            </div>
-            <input type="hidden" name="_token" :value="csrf">
-
-            <div class="fw-900 text-register">
-                <p>Tu n’as pas encore de compte ? <router-link class="yellow" :to="{ name: 'Register' }">&nbsp; Fais le test
-                </router-link></p>
-            </div>
-            </form>
-            <!-- <div class="bg">
-                </div> -->
+            Se connecter
+          </button>
         </div>
-        <img src="../../../img/home/bg-smiley.png" alt="" srcset="" class="bg-bottom">
+        <span class="switch-login mb-1_5">ou</span>
+        <div class="login-text mb-1">
+          <p>En te connectant à [Nom de l’appli], tu acceptes nos <b>Conditions d’utilisation</b> et notre <b>Politique
+              de confidentialité.</b></p>
+        </div>
+        <input type="hidden" name="_token" :value="csrf">
+
+        <div class="fw-900 text-register">
+          <p>Tu n’as pas encore de compte ? <router-link class="yellow" :to="{ name: 'Register' }">&nbsp; Fais le test
+            </router-link>
+          </p>
+        </div>
+      </form>
+      <!-- <div class="bg">
+                </div> -->
     </div>
+    <img src="../../../img/home/bg-smiley.png" alt="" srcset="" class="bg-bottom">
+  </div>
 </template>
