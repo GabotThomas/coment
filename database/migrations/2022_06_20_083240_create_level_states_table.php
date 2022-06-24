@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuizUserTable extends Migration
+class CreateLevelStatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateQuizUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('quiz_user', function (Blueprint $table) {
+        Schema::create('level_states', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('quiz_id');
-            //$table->string('name');
-            $table->integer('status_live')->references('id')->on('questions');
-            $table->enum('status', ['unfinish', 'finish'])->default('unfinish');
+            $table->integer('level');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateQuizUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quiz_user');
+        Schema::dropIfExists('level_states');
     }
 }

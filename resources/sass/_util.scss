@@ -1,0 +1,94 @@
+.circle-wrap {
+    margin: 20px auto;
+    width: 95px;
+    height: 95px;
+    background: $light-gray;
+    border-radius: 50%;
+    position: relative;
+}
+
+.circle-state {
+    height: 100%;
+    width: 100%;
+    transform: rotate(150deg);
+}
+
+.outline-img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 100;
+    transform: translate(12px, 7px);
+    width: 35px;
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+    width: 95px;
+    height: 95px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.circle-wrap .circle .mask {
+    clip: rect(0px, 95px, 95px, 47.5px);
+}
+
+.deep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.circle-wrap .inside-circle {
+    width: 80px;
+    height: 80px;
+    background: $white;
+    line-height: 82px;
+    text-align: center;
+    color: $yellow;
+    position: absolute;
+    z-index: 100;
+    font-weight: 700;
+    font-size: 2em;
+
+    .deep-circle {
+        width: 65px;
+        height: 65px;
+        background-color: $blue;
+
+        img {
+            height: auto;
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -54%);
+        }
+    }
+}
+
+/* color animation */
+
+/* 3rd progress bar */
+.mask .fill {
+    clip: rect(0px, 47.5px, 95px, 0px);
+    background-color: $yellow;
+}
+
+.mask.full,
+.circle .fill {
+    /*
+    transform: rotate(150deg);
+    */
+}
+
+.level.disabled .circle-wrap .inside-circle .deep-circle{
+    background-color: $light-gray;
+}

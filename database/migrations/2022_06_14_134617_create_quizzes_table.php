@@ -15,6 +15,7 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('level_id');
             $table->boolean('is_initial')->default(false);
             $table->string('name');
             $table->timestamps();

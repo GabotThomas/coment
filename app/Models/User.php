@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname',
         'email',
         'password',
     ];
@@ -45,5 +46,28 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->role === 'admin';
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($item) {
+            $levels = Level::getAll();
+
+            foreach($levels as $level){
+                $newLevelUser = new LevelUser(); 
+                $newLevelUser->user_id = $item->id;
+                $newLevelUser->level_id = $level->id;
+                foreach($level['quizzes'] as $quiz){
+                    $newQuizUser = new QuizUser();
+                    $newQuizUser->user_id = $item->id;
+                    $newQuizUser->quiz_id = $quiz->id;
+                    $newQuizUser->status = 'unfinish';
+                    $newQuizUser->save();
+                }
+                $newLevelUser->save();
+            }
+        });
     }
 }

@@ -7,25 +7,26 @@ import Loader from "../util/Loader.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { POST } from "../../constants/methods";
-import arrowLeft from "../../../img/icons/arrow.png";
+import arrowLeft from "../../../img/icons/arrow-left-black.svg";
 
-const { getStoredItem, setItemToStorage } = useLocalStorage();
+
 const router = useRouter();
 const [resultQuiz, loadQuiz, loadingQuiz] = useFetch();
 const [resultQuizSend, loadQuizSend, loadingQuizSend] = useFetch();
+const { id } = router.currentRoute.value.params;
 
 const quiz = ref({});
 const index = ref(0);
 
 const handleLoad = () => {
     loadQuiz({
-        url: "quiz/initial",
+        url: `level/${id}`,
     });
 };
 
 const handleSend = () => {
     loadQuizSend({
-        url: "quiz/initial",
+        url: "quiz/save",
         method: POST,
         body: { quiz: quiz.value }
     });
@@ -33,7 +34,6 @@ const handleSend = () => {
 
 const handleFinish = () => {
     handleSend();
-    setItemToStorage({ ...quiz.value, status: 'finished' }, 'quiz')
 }
 
 const handleNext = () => {
@@ -44,6 +44,10 @@ const handlePrev = () => {
     index.value--;
 }
 
+const handleReturn = () => {
+    router.push({ name: "Dashboard" });
+}
+
 const handleSelect = (result) => {
     const question = quiz.value.questions[index.value];
     quiz.value.questions[index.value] = { ...question, result }
@@ -51,16 +55,21 @@ const handleSelect = (result) => {
 
 watch(resultQuiz, (currentValue, oldValue) => {
     if (currentValue && currentValue.success) {
-        quiz.value = currentValue.quiz;
+        quiz.value = {
+            ...currentValue.lastQuiz.quiz,
+            totalQuestion: currentValue.lastQuiz.totalQuestion
+        };
+    }
+});
+
+watch(resultQuizSend, (currentValue, oldValue) => {
+    if (currentValue && currentValue.success) {
+        router.push({ name: "Results", params: { id: currentValue.resultUser } });
     }
 });
 
 onBeforeMount(() => {
     handleLoad();
-    const quiz = getStoredItem('quiz');
-    // if (quiz.status == 'finished') {
-    //     router.push({ name: "Login" });
-    // }
 })
 
 const question = computed(() => quiz.value.questions[index.value])
@@ -68,6 +77,10 @@ const next = computed(() => index.value < quiz.value.totalQuestion - 1)
 const prev = computed(() => index.value >= quiz.value.totalQuestion - 1)
 
 const progress = computed(() => (index.value + 1) / quiz.value.totalQuestion * 100)
+
+const avancement = computed(() => {
+    return `${index.value + 1}/${quiz.value.totalQuestion}`
+})
 
 const allChecked = computed(() => {
     return quiz.value.questions.every(question => question.result != undefined);
@@ -81,15 +94,18 @@ const allChecked = computed(() => {
             <div class="col-md-8">
                 <Loader v-if="loadingQuiz" />
                 <div v-else class="card ui container quiz justify-start">
-                    <div v-on:click="handlePrev" class="arrow-left mb-2">
-                        <img :src="arrowLeft" alt="" srcset=""/>
+                    <div class="arrow-left mb-2">
+                        <img :src="arrowLeft" v-on:click="handleReturn" alt="" srcset="" />
                         <div class="progress-bar">
-                            <div class="progress-bar__before" v-bind:style="{ width:progress + '%' }"></div>
+                            <div class="progress-bar__before" v-bind:style="{ width: progress + '%' }"></div>
                         </div>
+                        <p class="progress-number">{{ avancement }}</p>
                     </div>
-                    <QuestionContainer :question="question" :handle-select="handleSelect" :handle-next="handleNext" :next="next" />
-                    <div v-if="allChecked">
-                        <button v-on:click="handleFinish" class="btn btn-primary">Terminer</button>
+                    <QuestionContainer :question="question" :handle-select="handleSelect" :handle-next="handleNext"
+                        :next="next" />
+                    <div v-if="!next">
+                        <button v-on:click="handleFinish" class="btn btn-primary"
+                            :disabled="!allChecked">Terminer</button>
                     </div>
                 </div>
             </div>

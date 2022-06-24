@@ -4,8 +4,15 @@ import Example from "../components/Example.vue";
 import LoginContainer from "../components/container/LoginContainer.vue";
 import RegisterContainer from "../components/container/RegisterContainer.vue";
 import QuestionContainer from "../components/container/QuestionContainer";
+import QuizInitialContainer from "../components/container/QuizInitialContainer";
 import QuizContainer from "../components/container/QuizContainer";
 import QuizStartContainer from "../components/container/QuizStartContainer";
+import ResultsQuizContainer from "../components/container/ResultsQuizContainer";
+import ResultsQuizInitialContainer from "../components/container/ResultsQuizInitialContainer";
+import DashboardContainer from "../components/container/DashboardContainer";
+import ProfileContainer from "../components/container/ProfileContainer";
+import ReglageContainer from "../components/container/ReglageContainer";
+import ErrorContainer from "../components/container/ErrorContainer";
 import store from "../store/index.js";
 
 const routes = [
@@ -18,29 +25,54 @@ const routes = [
         path: "/login",
         name: "Login",
         component: LoginContainer,
-        beforeEnter: [justVisitor],
     },
 
     {
         path: "/register",
         name: "Register",
         component: RegisterContainer,
-        beforeEnter: [justVisitor],
     },
-
     {
         path: "/quiz/initial",
         name: "QuizInitial",
-        component: QuizContainer,
+        component: QuizInitialContainer,
     },
-
-    /*
     {
-        path: "/category",
-        name: "Category",
-        component: OfficeCategoryListContainer,
+        path: "/quiz/:id",
+        name: "Quiz",
+        component: QuizContainer,
         meta: { requiresLogin: true },
-    },*/
+    },
+    {
+        path: "/results/initial/:id",
+        name: "ResultsInitial",
+        component: ResultsQuizInitialContainer,
+    },
+    {
+        path: "/results/:id",
+        name: "Results",
+        component: ResultsQuizContainer,
+        meta: { requiresLogin: true },
+    },
+    {
+        path: "/dashboard",
+        name: "Dashboard",
+        component: DashboardContainer,
+        meta: { requiresLogin: true },
+    },
+    {
+        path: "/profile/:id",
+        name: "Profile",
+        component: ProfileContainer,
+        meta: { requiresLogin: true },
+    },
+    {
+        path: "/reglage",
+        name: "Reglage",
+        component: ReglageContainer,
+        meta: { requiresLogin: true },
+    },
+    { path: "/:pathMatch(.*)*", name: "Error", component: ErrorContainer },
 ];
 const router = createRouter({
     history: createWebHistory(),

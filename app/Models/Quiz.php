@@ -17,7 +17,12 @@ class Quiz extends Model
         return $this->hasMany(Question::class);
     }
 
-    public static function getAll()
+public function quizUser()
+{
+    return $this->hasOne(QuizUser::class);
+}
+
+public static function getAll()
     {
         return Quiz::with("id")->get();
     }
@@ -42,10 +47,12 @@ class Quiz extends Model
     public static function findInitalQuiz()
     {
         $subquery = function ($q) {
-            $q->select([DB::raw('COUNT(questions.id)')])
+            $q->select(DB::raw('COUNT(questions.id)'))
                 ->from('quizzes')
                 ->join("questions", "questions.quiz_id", "=", "quizzes.id")
-                ->where('quizzes.is_initial', '=', 1);
+                ->where('quizzes.is_initial', '=', 1)
+                ->groupBy('quizzes.id')
+                ;
         };
 
         $query = Quiz::with('questions')
@@ -54,5 +61,23 @@ class Quiz extends Model
             ->firstOrFail();
 
         return $query;
+    }
+
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($item) {
+            $users = User::all();
+
+            foreach ($users as $user) {
+                $newQuizUser = new QuizUser();
+                $newQuizUser->user_id = $user->id;
+                $newQuizUser->quiz_id = $item->id;
+                $newQuizUser->status = 'unfinish';
+                $newQuizUser->save();
+            }
+        });
     }
 }

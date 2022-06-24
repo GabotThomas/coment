@@ -2,20 +2,24 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Lato', sans-serif;
-$font-family-second: 'Montserrat', sans-serif;
+$font-family-sans-serif: "Lato", sans-serif;
+$font-family-second: "Montserrat", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Color
-$yellow-primary: #FECC00;
-$yellow-secondary: #E7B900;
 $white: #ffffff;
-$gray: #AFAFAF;
-$disabled-gray: #E5E5E5;
-$disabled-text: #696969;
-$progress-gray: #D9D9D9;
 $black: #000000;
+$yellow: #fecc00;
+$dark-yellow: #e7b900;
+$gray: #afafaf;
+$dark-gray: #696969;
+$light-gray: #d9d9d9;
+$extra-light-gray: #f7f7f7;
+$red: #C73E20;
+$dark-red: #B92006;
+$blue: #237EE2;
+$dark-blue: #3872B2;
 
 // Weight
 $bold: 900;
