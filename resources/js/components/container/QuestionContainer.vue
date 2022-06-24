@@ -32,10 +32,12 @@ const props = defineProps({
                         </p>
                     </div>
                     <div class="questions-button">
-                        <button v-on:click="(e) => handleSelect(1)"
-                            :class="makeClassName('btn-answer btn-answer__yes', props.question.result == 1 && 'active')">Oui</button>
-                        <button v-on:click="(e) => handleSelect(0)"
-                            :class="makeClassName('btn-answer btn-answer__no mb-2', props.question.result == 0 && 'active')">Non</button>
+                        <div v-on:click="(e) => handleSelect(1)"
+                            :class="makeClassName('btn-answer btn-answer__yes cursor', props.question.result == 1 && 'active')">
+                            Oui</div>
+                        <div v-on:click="(e) => handleSelect(0)"
+                            :class="makeClassName('btn-answer btn-answer__no mb-2 cursor', props.question.result == 0 && 'active')">
+                            Non</div>
                         <div>
                             <button v-on:click="handleNext"
                                 :class="makeClassName('btn btn-primary', !next && 'display-none')"

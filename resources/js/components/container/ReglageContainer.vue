@@ -7,9 +7,7 @@ const router = useRouter();
 const store = useStore();
 
 const handleLogOut = () => {
-    localStorage.setItem("token", null);
-    store.commit("setUser", null);
-    store.commit("setToken", null);
+    store.commit("resetAll");
     router.push({ name: "Login" });
 };
 

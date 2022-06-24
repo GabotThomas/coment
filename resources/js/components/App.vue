@@ -10,6 +10,7 @@ const store = useStore();
 const token = ref();
 const router = useRouter();
 const [resultLogin, loadLogin, loadingLogin] = useFetch();
+const user = ref(null);
 
 const handleLoad = () => {
     loadLogin({
@@ -28,15 +29,17 @@ onBeforeMount(() => {
 
 watch(store.state.user, (currentValue, oldValue) => {
     token.value = currentValue.token;
+    user.value = currentValue.user;
 });
 
 watch(resultLogin, (currentValue, oldValue) => {
     if (currentValue && currentValue.success) {
         store.commit("setToken", token.value);
         store.commit("setUser", currentValue.user)
+        user.value = currentValue.user;
     } else {
-        store.commit("setToken", null);
-        // router.push({ name: "Login" });
+        store.commit("resetToken");
+        router.push({ name: "Login" });
     }
 });
 
@@ -45,7 +48,7 @@ watch(resultLogin, (currentValue, oldValue) => {
 <template>
     <Loader v-if="loadingLogin" />
     <div v-else>
-        <Header :is-connected="token" />
+        <Header :user="user" />
         <main>
             <router-view></router-view>
         </main>

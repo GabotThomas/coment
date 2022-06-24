@@ -22,26 +22,30 @@ h1 {
     font-size: 1.4rem;
     font-family: $font-family-second;
     text-align: center;
-
 }
 
 button {
     font-family: $font-family-sans-serif;
 }
 
-p, a {
+p,
+a {
     font-family: $font-family-sans-serif;
     font-weight: 500;
     font-size: 15px;
     line-height: 22px;
 }
 
+.cursor{
+    cursor: pointer;
+}
+
 .ui.container.home {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
-    height: 85vh;
+    height: calc(75vh - 20px);
     padding: 2rem;
 
     .home-bg {
@@ -89,7 +93,7 @@ p, a {
 }
 
 .ui.container.login,
-.ui.container.register  {
+.ui.container.register {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,8 +190,6 @@ p, a {
     flex-direction: column;
     justify-content: center;
     padding: 2rem;
-    height: 90vh;
-
     .arrow-left {
         width: 100%;
         display: flex;
@@ -219,8 +221,6 @@ p, a {
     }
 
     .ui.container.question {
-        height: 100%;
-
         .h-100 {
             height: 100%;
 
@@ -231,7 +231,7 @@ p, a {
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    height: 100%;
+                    min-height: calc(90vh - 4rem);
 
                     h1 {
                         font-size: 1rem;
@@ -260,11 +260,11 @@ p, a {
 }
 
 .ui.container.result {
-    // height: 100vh;
+    min-height: 90vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-top: 120px;
 
     .btn-link-text {
         color: $white;
@@ -376,7 +376,6 @@ p, a {
                 margin-left: 17px;
             }
         }
-
     }
 
     .result-container_register {
@@ -400,7 +399,6 @@ p, a {
             margin: 0;
             line-height: 22px;
         }
-
     }
 }
 
@@ -441,7 +439,6 @@ p, a {
     margin-bottom: 115px;
 
     .level-state {
-
         .level-title_container {
             margin-top: 122px;
         }
@@ -666,7 +663,6 @@ p, a {
                     .success-img {
                         z-index: 10;
                         width: 65px;
-
                     }
                 }
 
@@ -681,7 +677,6 @@ p, a {
                         margin: 0;
                         text-align: start;
                     }
-
 
                     .progress-bar {
                         content: "";
@@ -732,17 +727,12 @@ p, a {
                         width: auto;
                     }
                 }
-
             }
-
         }
-
     }
-
 }
 
 .ui.container.reglage {
-
     .container-reglage_header {
         justify-content: center;
         display: flex;
@@ -797,7 +787,6 @@ p, a {
                         }
                     }
 
-
                     .reglage-icon_chevron {
                         height: 11px;
                         width: auto;
@@ -850,5 +839,44 @@ p, a {
                 font-family: $font-family-second;
             }
         }
+    }
+}
+
+.back-confet {
+    height: 25vh;
+    position: relative;
+    margin-bottom: 20px;
+    .background-color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $yellow;
+        height: 100%;
+        width: 100%;
+    }
+    .background-confet {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .wave {
+        bottom: -4px;
+        right: 0;
+        max-height: 70%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .children {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -20%);
     }
 }
