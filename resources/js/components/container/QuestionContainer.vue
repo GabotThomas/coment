@@ -5,7 +5,6 @@ import { makeClassName } from "../../functions/index";
 import { Vue3Lottie } from 'vue3-lottie'
 import 'vue3-lottie/dist/style.css'
 import LottieJson from "../util/LottieJson.vue";
-import Test from "../../../../storage/app/public/image/question/electric.json"
 
 const props = defineProps({
     question: Object,
