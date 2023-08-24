@@ -1,0 +1,19 @@
+name: Deploy back-end production
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run deploy : git pull, composer install and update bdd"
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.O2SWITCH_HOST }}
+          username: ${{ secrets.O2SWITCH_USERNAME }}
+          key: ${{ secrets.O2SWITCH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.O2SWITCH_PASSPHRASE }}
+          script: ls
+          debug: true
