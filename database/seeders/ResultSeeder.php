@@ -18,7 +18,7 @@ class ResultSeeder extends Seeder
     {
         Result::create([
             'id'                    => 1,
-            'image'                 => '/storage/image/result/bad.svg',
+            'image'                 => '/images/result/bad.svg',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -34,7 +34,7 @@ class ResultSeeder extends Seeder
 
         Result::create([
             'id'                    => 2,
-            'image'                 => '/storage/image/result/canBetter.svg',
+            'image'                 => '/images/result/canBetter.svg',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -47,11 +47,11 @@ class ResultSeeder extends Seeder
                 'created_at'            => now(),
                 'updated_at'            => now(),
             ]
-        );   
-        
+        );
+
         Result::create([
             'id'                    => 3,
-            'image'                 => '/storage/image/result/good.svg',
+            'image'                 => '/images/result/good.svg',
             'created_at'            => now(),
             'updated_at'            => now(),
         ]);
@@ -63,6 +63,6 @@ class ResultSeeder extends Seeder
                 'created_at'            => now(),
                 'updated_at'            => now(),
             ]
-        );    
+        );
     }
 }
