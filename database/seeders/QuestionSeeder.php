@@ -10,11 +10,11 @@ class QuestionSeeder extends Seeder
 {
 
     const images = [
-        '/storage/image/question/messengerflow.json',
-        '/storage/image/question/messengercon.json',
-        '/storage/image/question/diamond.json',
-        '/storage/image/question/electric.json',
-        '/storage/image/question/messenger.json',
+        '/images/question/messengerflow.json',
+        '/images/question/messengercon.json',
+        '/images/question/diamond.json',
+        '/images/question/electric.json',
+        '/images/question/messenger.json',
     ];
 
     /**
@@ -33,7 +33,7 @@ class QuestionSeeder extends Seeder
             'answer'                => '<p><span style="color: #FED320">Exemples : </span><span>les femmes s’occupent systématiquement des enfants
             tandis que les hommes sont au travail; les femmes sont décrites
             comme dépensières ou inconstantes.<br></span><span style="color: #FED320">Indicateur de rôle social</span></p>',
-            'image'                 => '/storage/image/question/messengerflow.json',
+            'image'                 => '/images/question/messengerflow.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -46,7 +46,7 @@ class QuestionSeeder extends Seeder
             'answer'                => '<p><span style="color: #FED320">Exemples : </span><span>les femmes sont mises en scène dans des postes
             subalternes tandis que les hommes sont représentés en tant
             que dirigeants ou experts.<br></span><span style="color: #FED320">Indicateur de position professionnelle</span></p>',
-            'image'                 => '/storage/image/question/messengercon.json',
+            'image'                 => '/images/question/messengercon.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -64,7 +64,7 @@ class QuestionSeeder extends Seeder
             « femme » ou deux hommes parlent d’un déodorant « homme »,
             ce sont des situations qui illustrent l’usage objectif du produit
             et ne sont donc pas à caractère sexiste.<br></span><span style="color: #FED320">Indicateur de présence</span></p>',
-            'image'                 => '/storage/image/question/diamond.json',
+            'image'                 => '/images/question/diamond.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -77,7 +77,7 @@ class QuestionSeeder extends Seeder
             'answer'                => '<p><span style="color: #FED320">Exemples : </span><span>une marque de petits pots pour enfants qui
             ne s’adresse qu’aux mères ; une publicité qui se moque
             des pères en insistant sur leur incompétence.<br></span><span style="color: #FED320">Indicateur de parentalité</span></p>',
-            'image'                 => '/storage/image/question/messengerflow.json',
+            'image'                 => '/images/question/messengerflow.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -92,7 +92,7 @@ class QuestionSeeder extends Seeder
             corps des hommes est réduit à ce qu’il a de plus viril et
             dominant (muscles); les seins d’une femme servent de
             présentoir pour mettre en avant un produit.<br></span><span style="color: #FED320">Indicateur de représentation corporelle</span></p>',
-            'image'                 => '/storage/image/question/diamond.json',
+            'image'                 => '/images/question/diamond.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -106,7 +106,7 @@ class QuestionSeeder extends Seeder
             propres à la vague du « porno chic »; les hommes sont
             représentés comme actifs, au premier plan, et occupent des
             positions assurées et dominatrices.<br></span><span style="color: #FED320">Indicateur de posture physique</span></p>',
-            'image'                 => '/storage/image/question/electric.json',
+            'image'                 => '/images/question/electric.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -119,7 +119,7 @@ class QuestionSeeder extends Seeder
             etc',
             'answer'                => '<p><span style="color: #FED320">Exemples : </span><span>« Mademoiselle » ; « Madame le Directeur » ;
             un produit fait pour « la » femme.<br></span><span style="color: #FED320">Indicateur sémantique</span></p>',
-            'image'                 => '/storage/image/question/messengerflow.json',
+            'image'                 => '/images/question/messengerflow.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -133,7 +133,7 @@ class QuestionSeeder extends Seeder
             « Nous louons aussi aux femmes » ; « Face à la technologie,
             on est tous un peu blonde » ; une automobile comparée au corps
             féminin : « Les françaises aussi ont de belles carrosseries ».<br></span><span style="color: #FED320">Indicateur de tonalité</span></p>',
-            'image'                 => '/storage/image/question/electric.json',
+            'image'                 => '/images/question/electric.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -147,7 +147,7 @@ class QuestionSeeder extends Seeder
             'answer'                => '<p><span style="color: #FED320">Exemples : </span><span>les femmes évoluent dans la sphère domestique
             (ménage, shopping, supermarché…); les hommes investissent
             l’espace public (milieu professionnel, médias, bars...).<br></span><span style="color: #FED320">Indicateur scénographique</span></p>',
-            'image'                 => '/storage/image/question/electric.json',
+            'image'                 => '/images/question/electric.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
@@ -160,7 +160,7 @@ class QuestionSeeder extends Seeder
             ou environnées de rose et de couleurs pastels tandis que
             les hommes/garçons sont vêtus ou environnés de bleu
             et de couleurs sombres, froides.<br></span><span style="color: #FED320">Indicateur chromatique</span></p>',
-            'image'                 => '/storage/image/question/messengercon.json',
+            'image'                 => '/images/question/messengercon.json',
             'is_sexist'             => false,
             'created_at'            => now(),
             'updated_at'            => now(),
