@@ -172,7 +172,7 @@ class QuestionSeeder extends Seeder
                     if ($i == 1 && $j == 0 && $l == 0) {
                         $rand = 0;
                     } else {
-                        $rand = rand(7, 10);
+                        $rand = rand(5, 7);
                     }
 
                     for ($n = 1; $n < $rand; $n++) {

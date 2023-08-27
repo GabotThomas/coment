@@ -15,7 +15,7 @@ const { getStoredItem } = useLocalStorage();
 const handleLoad = () => {
     const quiz = getStoredItem('quiz');
     let body = {};
-    if (quiz.status == 'finished') {
+    if (quiz && quiz.status == 'finished') {
         body = { quiz: 'finished' }
     }
 

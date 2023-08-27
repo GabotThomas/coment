@@ -27,7 +27,7 @@ const router = useRouter();
 const handleSubmit = () => {
   const quiz = getStoredItem('quiz');
   let body = user.value;
-  if (quiz.status == 'finished') {
+  if (quiz && quiz.status == 'finished') {
     body = { ...body, quiz: 'finished' }
   }
   loadRegister({
