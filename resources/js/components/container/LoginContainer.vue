@@ -1,5 +1,5 @@
 <script setup>
-import { watch, ref, onBeforeMount } from "vue";
+import { watch } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import useFetch from "../../hooks/useFetch";
@@ -7,16 +7,17 @@ import useReducer from "../../hooks/useReducer";
 import formReducer, { setValueAction } from "../../reducers/formReducer";
 import useActions from "../../hooks/useActions";
 import { POST } from "../../constants/methods";
-import PasswordField from "../container/PasswordField.vue";
 import InputPassword from "../form/module/InputPassword.vue";
+import InviteButton from "../util/InviteButton.vue";
 import BackgroundConfet from "../util/BackgroundConfet.vue";
+
 
 const store = useStore();
 const router = useRouter();
 const [resultLogin, loadLogin, loadingLogin] = useFetch();
 const [user, dispatchState] = useReducer(formReducer, {
-  email: "test@yahoo.fr",
-  password: "Thomas77220;",
+  email: "",
+  password: "",
 });
 const [setValue] = useActions(dispatchState, [setValueAction]);
 const csrf = document.head.querySelector('meta[name="csrf-token"]').content;
@@ -73,6 +74,7 @@ watch(resultLogin, (currentValue, oldValue) => {
                     " type="button" v-on:click.prevent="handleSubmit">
             Se connecter
           </button>
+          <InviteButton />
         </div>
         <span class="switch-login mb-1_5">ou</span>
         <div class="login-text mb-1">

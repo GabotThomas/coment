@@ -9,6 +9,7 @@ const reRender = ref(false);
 const control = ref();
 
 watch(props, (current, old) => {
+    console.log(props, reRender.value);
     reRender.value = true;
 })
 

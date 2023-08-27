@@ -1,31 +1,30 @@
 <script setup>
 import { useRouter } from "vue-router";
-import { RouterLink, RouterView } from "vue-router";
-import { computed, onBeforeMount, ref, watch } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 import { makeClassName } from "../functions/index";
 
 const router = useRouter();
-const props = defineProps({
-  user: {
-    type: Object,
-    required: false,
-    default: null,
-  }
-});
-
 const store = useStore();
-const isActive = ref()
 
 const isHeader = computed(() => {
   const currentRoute = router.currentRoute.value.name;
   return RegExp(/Quiz|Error|Login|Results/).test(currentRoute);
 })
+
+
+const user = computed(() => {
+  if (store.state.user?.user) {
+    return store.state.user.user;
+  }
+  return {};
+})
+
 </script>
 
 <template>
-  <template v-if="props.user && !isHeader">
-    <nav class="">
+  <template v-if="user && user.id && !isHeader">
+    <nav>
       <div class="nav-bar_content">
         <div class="ui nav-bar">
           <button class="">
@@ -52,7 +51,7 @@ const isHeader = computed(() => {
             </router-link>
           </button>
           <button class="">
-            <router-link :to="{ name: 'Profile', params: { id: props.user.id } }">
+            <router-link v-if="user.id" :to="{ name: 'Profile', params: { id: user.id } }">
               <!-- <img src="../../img/icons/man.svg" alt=""> -->
               <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

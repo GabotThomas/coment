@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Hash;
 
 class QuestionSeeder extends Seeder
 {
+
+    const images = [
+        '/storage/image/question/messengerflow.json',
+        '/storage/image/question/messengercon.json',
+        '/storage/image/question/diamond.json',
+        '/storage/image/question/electric.json',
+        '/storage/image/question/messenger.json',
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -157,63 +166,36 @@ class QuestionSeeder extends Seeder
             'updated_at'            => now(),
         ]);
 
+        for ($l = 0; $l < 20; $l = $l + 10) {
+            for ($i = 1; $i < 10; $i = $i + 2) {
+                for ($j = 0; $j < 2; $j++) {
+                    if ($i == 1 && $j == 0 && $l == 0) {
+                        $rand = 0;
+                    } else {
+                        $rand = rand(7, 10);
+                    }
 
-        //Level - 1 //Quiz - 2
-        Question::create([
-            'quiz_id'               => '2',
-            'text'                  => 'Lorem ipsum dolor sit amet ?',
-            'answer'                => '<p><span>Sont concernés les textes écrits, signatures, dialogues, voix off, chansons, etc.<br><br></span><span style="color: #FED320">Exemples</span><span> : « Mademoiselle » ; « Madame le Directeur » ; un produit fait pour « la » femme.<br>Indicateur </span><span style="color: #FED320">sémantique</span></p>',
-            'image'                 => '/storage/image/question/diamond.json',
-            'is_sexist'             => false,
-            'created_at'            => now(),
-            'updated_at'            => now(),
-        ]);
-        Question::create([
-            'quiz_id'               => '2',
-            'text'                  => 'Lorem ipsum dolor sit amet. Aut neque exercitationem modi ?',
-            'answer'                => '<p><span>Sont concernés les textes écrits, signatures, dialogues, voix off, chansons, etc.<br><br></span><span style="color: #FED320">Exemples</span><span> : « Mademoiselle » ; « Madame le Directeur » ; un produit fait pour « la » femme.<br>Indicateur </span><span style="color: #FED320">sémantique</span></p>',
-            'image'                 => '/storage/image/question/electric.json',
-            'is_sexist'             => true,
-            'created_at'            => now(),
-            'updated_at'            => now(),
-        ]);
-        Question::create([
-            'quiz_id'               => '2',
-            'text'                  => 'Lorem ipsum dolor sit amet. Aut neque exercitationem modi ????',
-            'answer'                => '<p><span>Sont concernés les textes écrits, signatures, dialogues, voix off, chansons, etc.<br><br></span><span style="color: #FED320">Exemples</span><span> : « Mademoiselle » ; « Madame le Directeur » ; un produit fait pour « la » femme.<br>Indicateur </span><span style="color: #FED320">sémantique</span></p>',
-            'image'                 => '/storage/image/question/messenger.json',
-            'is_sexist'             => true,
-            'created_at'            => now(),
-            'updated_at'            => now(),
-        ]);
-
-        //Level - 2 //Quiz - 1
-        Question::create([
-            'quiz_id'               => '3',
-            'text'                  => 'Lorem ipsum dolor sit amet ?',
-            'answer'                => '<p><span>Sont concernés les textes écrits, signatures, dialogues, voix off, chansons, etc.<br><br></span><span style="color: #FED320">Exemples</span><span> : « Mademoiselle » ; « Madame le Directeur » ; un produit fait pour « la » femme.<br>Indicateur </span><span style="color: #FED320">sémantique</span></p>',
-            'image'                 => '/storage/image/question/messengerflow.json',
-            'is_sexist'             => false,
-            'created_at'            => now(),
-            'updated_at'            => now(),
-        ]);
-        Question::create([
-            'quiz_id'               => '3',
-            'text'                  => 'Lorem ipsum dolor sit amet. Aut neque exercitationem modi ?',
-            'answer'                => '<p><span>Sont concernés les textes écrits, signatures, dialogues, voix off, chansons, etc.<br><br></span><span style="color: #FED320">Exemples</span><span> : « Mademoiselle » ; « Madame le Directeur » ; un produit fait pour « la » femme.<br>Indicateur </span><span style="color: #FED320">sémantique</span></p>',
-            'image'                 => '/storage/image/question/electric.json',
-            'is_sexist'             => true,
-            'created_at'            => now(),
-            'updated_at'            => now(),
-        ]);
-        Question::create([
-            'quiz_id'               => '3',
-            'text'                  => 'Lorem ipsum dolor sit amet. Aut neque exercitationem modi ????',
-            'answer'                => '<p><span>Sont concernés les textes écrits, signatures, dialogues, voix off, chansons, etc.<br><br></span><span style="color: #FED320">Exemples</span><span> : « Mademoiselle » ; « Madame le Directeur » ; un produit fait pour « la » femme.<br>Indicateur </span><span style="color: #FED320">sémantique</span></p>',
-            'image'                 => '/storage/image/question/messenger.json',
-            'is_sexist'             => true,
-            'created_at'            => now(),
-            'updated_at'            => now(),
-        ]);
+                    for ($n = 1; $n < $rand; $n++) {
+                        Question::create([
+                            'quiz_id'               => $i + $j + $l,
+                            'text'                  => 'Lorem ipsum dolor sit amet ?',
+                            //write answer wityh lorem ipsum
+                            'answer'                => '<p>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget
+                        ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc eu nisl. Nulla
+                        </span>
+                        <span>facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla
+                        </span>
+                        </p>
+                        ',
+                            'image'                 => self::images[rand(0, 4)],
+                            'is_sexist'             => rand(0, 1) == 1 ? true : false,
+                            'created_at'            => now(),
+                            'updated_at'            => now(),
+                        ]);
+                    }
+                }
+            }
+        }
     }
 }

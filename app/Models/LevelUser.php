@@ -52,13 +52,19 @@ class LevelUser extends Model
         $idUser = Auth::id();
 
         $subquery = function ($q) use ($id, $idUser) {
-            $q->select([DB::raw('COUNT(questions.id)')])
-                ->from('quizzes')
-                ->join("quiz_users", "quiz_users.quiz_id", "=", "quizzes.id")
-                ->join("questions", "questions.quiz_id", "=", "quizzes.id")
+            // $q->select([DB::raw('COUNT(questions.id)')])
+            //     ->from('quizzes')
+            //     ->join("quiz_users", "quiz_users.quiz_id", "=", "quizzes.id")
+            //     ->join("questions", "questions.quiz_id", "=", "quizzes.id")
+            //     ->where('quizzes.level_id', '=', $id)
+            //     ->where('quiz_users.user_id', '=', $idUser)
+            //     ->where('quiz_users.status', '=', 'unfinish');
+            $q->select([DB::raw('COUNT(ss_questions.id)')])
+                ->from('questions', 'ss_questions')
+                ->join('quizzes', 'quizzes.id', '=', 'ss_questions.quiz_id')
+                ->join('quiz_users', 'quiz_users.id', '=', 'quizzes.id')
                 ->where('quizzes.level_id', '=', $id)
-                ->where('quiz_users.user_id', '=', $idUser)
-                ->where('quiz_users.status', '=', 'unfinish');
+                ->where('quiz_users.user_id', '=', $idUser);
         };
 
         $lastQuiz = QuizUser::with(['quiz' => function ($q) {

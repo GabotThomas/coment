@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Quiz;
 use App\Models\QuizUser;
 use App\Models\User;
+use App\Service\Utils;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ class AuthController extends Controller
         } catch (ValidationException $e) {
             dd($e->errors());
         }
-        
+
         $user = User::create([
             'name' => $validatedData['name'],
             'lastname' => $validatedData['lastname'],
@@ -34,8 +35,8 @@ class AuthController extends Controller
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
-        
-        if(!empty($request->quiz)){
+
+        if (!empty($request->quiz)) {
             $quizInitialUser = QuizUser::findInitalQuiz($user->id);
             $quizInitialUser->status = 'finish';
             $quizInitialUser->save();
@@ -72,6 +73,32 @@ class AuthController extends Controller
         $user = Auth::user();
         return response()->json([
             'user' => $user,
+        ]);
+    }
+
+    public function loginTest(Request $request)
+    {
+        $uuid = Utils::uuid();
+
+        $user = User::create([
+            'name' => 'Utilisateur',
+            'lastname' => "Test",
+            'email' => "test_$uuid@quizent.fr",
+            'password' => Hash::make(Utils::uuid()),
+        ]);
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        if (!empty($request->quiz)) {
+            $quizInitialUser = QuizUser::findInitalQuiz($user->id);
+            $quizInitialUser->status = 'finish';
+            $quizInitialUser->save();
+        }
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'user' => $user
         ]);
     }
 }

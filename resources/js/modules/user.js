@@ -16,7 +16,8 @@ const user = {
             state.token = null;
         },
         resetAll(state) {
-            state = {};
+            state.token = null;
+            state.user = null;
             localStorage.setItem("token", JSON.stringify(null));
         },
     },

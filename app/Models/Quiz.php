@@ -33,8 +33,7 @@ class Quiz extends Model
                 ->from('quizzes')
                 ->join("questions", "questions.quiz_id", "=", "quizzes.id")
                 ->where('quizzes.is_initial', '=', 1)
-                ->groupBy('quizzes.id')
-                ;
+                ->groupBy('quizzes.id');
         };
 
         $query = Quiz::with('questions')

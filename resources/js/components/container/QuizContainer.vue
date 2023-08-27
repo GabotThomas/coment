@@ -57,7 +57,7 @@ watch(resultQuiz, (currentValue, oldValue) => {
     if (currentValue && currentValue.success) {
         quiz.value = {
             ...currentValue.lastQuiz.quiz,
-            totalQuestion: currentValue.lastQuiz.totalQuestion
+            totalQuestion: currentValue.lastQuiz.quiz.questions.length
         };
     }
 });
@@ -104,8 +104,7 @@ const allChecked = computed(() => {
                     <QuestionContainer :question="question" :handle-select="handleSelect" :handle-next="handleNext"
                         :next="next" />
                     <div v-if="!next">
-                        <button v-on:click="handleFinish" class="btn btn-primary"
-                            :disabled="!allChecked">Terminer</button>
+                        <button v-on:click="handleFinish" class="btn btn-primary" :disabled="!allChecked">Terminer</button>
                     </div>
                 </div>
             </div>

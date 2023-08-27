@@ -8,19 +8,18 @@ import useActions from "../../hooks/useActions";
 import { setValueAction } from "../../reducers/formReducer";
 import formReducer from "../../reducers/formReducer";
 import { useRouter } from "vue-router";
-import { Vue3Lottie } from 'vue3-lottie'
 import 'vue3-lottie/dist/style.css'
-import Electric from "../../../img/json/electric.json";
 import InputPassword from "../form/module/InputPassword.vue";
+import InviteButton from "../util/InviteButton.vue";
 
 const [resultRegister, loadRegister, loadingRegister] = useFetch();
 const { getStoredItem, setItemToStorage } = useLocalStorage();
 const [user, dispatchState] = useReducer(formReducer, {
-  email: "test@yahoo.fr",
-  name: "Test",
-  lastname: 'Unique',
-  password: 'Thomas77220;',
-  confirm_password: 'Thomas77220;'
+  email: "",
+  name: "",
+  lastname: '',
+  password: '',
+  confirm_password: ''
 });
 const [setValue] = useActions(dispatchState, [setValueAction]);
 const router = useRouter();
@@ -86,6 +85,7 @@ watch(resultRegister, (currentValue, oldValue) => {
           <button type="submit" class="btn btn-primary mb-1_5" v-on:click.prevent="handleSubmit">
             CRÉER MON COMPTE
           </button>
+          <InviteButton />
           <span class="switch-login mb-1_5">ou</span>
           <div class="register-text mb-1">
             <p>En te connectant à [Nom de l’appli], tu acceptes nos <b>Conditions d’utilisation</b> et notre

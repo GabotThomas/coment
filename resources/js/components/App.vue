@@ -48,9 +48,11 @@ watch(resultLogin, (currentValue, oldValue) => {
 <template>
     <Loader v-if="loadingLogin" />
     <div v-else>
-        <Header :user="user" />
         <main>
-            <router-view></router-view>
+            <div class="mobile">
+                <Header />
+                <router-view></router-view>
+            </div>
         </main>
     </div>
 </template>

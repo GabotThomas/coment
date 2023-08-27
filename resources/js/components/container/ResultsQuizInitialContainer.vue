@@ -12,6 +12,7 @@ import Button from "../util/Button.vue";
 import ResultStatContainer from "./ResultStatContainer.vue";
 import ResultDataContainer from "./ResultDataContainer.vue";
 import ResultRegisterContainer from "./ResultRegisterContainer.vue";
+import InviteButton from "../util/InviteButton.vue";
 
 SwiperCore.use([Pagination]);
 
@@ -78,8 +79,7 @@ const lastSlide = computed(() =>
                 clickable: true
             }" @init="handleInit" @slide-change="handleSlideChange">
                 <swiper-slide v-for="(page) in pages" :key="page.id">
-                    <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :text="page.text"
-                        class="text-align" />
+                    <ResultSwipeContainer :image="image" :pourcentage="pourcentage" :text="page.text" class="text-align" />
                 </swiper-slide>
 
                 <swiper-slide>
@@ -94,7 +94,7 @@ const lastSlide = computed(() =>
                     <ResultRegisterContainer />
                 </swiper-slide>
 
-                <div class="pl-2 pr-2">
+                <div class="p-2">
                     <Button v-if="!lastSlide" v-on:click="handleNext" class="btn-primary mb-0_5">En
                         savoir
                         plus</Button>
@@ -103,6 +103,7 @@ const lastSlide = computed(() =>
                             S'inscrire
                         </Button>
                     </router-link>
+                    <InviteButton v-if="lastSlide" />
                     <router-link class="btn-link-text" :to="{ name: 'Home' }">
                         <Button class="btn-secondary">
                             Retour

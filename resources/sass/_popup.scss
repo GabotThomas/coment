@@ -1,8 +1,8 @@
-.popup-container{
+.popup-container {
     display: none;
 
-    &.open{
-        display:block;
+    &.open {
+        display: block;
         z-index: 999;
         position: fixed;
         top: 0;
@@ -13,16 +13,17 @@
 
         .popup-button {
             position: fixed;
-            bottom: 230px;
-            right: 46px;
+            bottom: calc(5vh + 140px);
+            left: calc(50% + 150px);
+            transform: translate(-67%, -75px);
         }
     }
 }
-.popup-open{
+.popup-open {
     position: fixed;
-    z-index :1000;
-    bottom: 140px;
-    right: 40px;
+    z-index: 1000;
+    bottom: calc(5vh + 140px);
+    left: calc(50% + 150px);
 
     button {
         border: none;
@@ -30,11 +31,9 @@
     }
 }
 
-.popup-open.close{
-    position: fixed;
-    z-index :1000;
-    bottom: 140px;
-    right: 40px;
+.popup-open.close {
+    bottom: calc(5vh + 140px);
+    left: calc(50% + 150px);
 
     button {
         animation: rotation-button-open 1s ease-out;
@@ -55,7 +54,7 @@
 
 .popup-open.open:active {
     button {
-        animation: rotation-button-close .5s ease-out;
+        animation: rotation-button-close 0.5s ease-out;
         border: none;
         background-color: transparent;
         transform: rotate(0deg);
@@ -106,10 +105,8 @@
         .button-ia {
             margin-bottom: 12px;
         }
-
     }
 }
-
 
 // Animation
 
@@ -128,5 +125,20 @@
     }
     to {
         transform: rotate(0deg);
+    }
+}
+
+@media (max-width: 500px) {
+    .popup-open {
+        bottom: 140px !important;
+        right: 2rem !important;
+        left: auto !important;
+    }
+
+    .popup-button {
+        bottom: 140px !important;
+        right: 1.2rem !important;
+        transform: translate(0, -75px) !important;
+        left: auto !important;
     }
 }
