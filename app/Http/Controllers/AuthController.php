@@ -24,7 +24,7 @@ class AuthController extends Controller
                 'password' => 'required|string|min:8',
             ]);
         } catch (ValidationException $e) {
-            dd($e->errors());
+            return response()->json(['errors' => $e->errors()], 422);
         }
 
         $user = User::create([
